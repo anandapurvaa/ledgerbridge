@@ -36,7 +36,7 @@ google-cloud-build==3.26.0
 python-dotenv==1.0.1
 pydantic==2.10.5
 
-# LangChain stack (all 0.3.x, let pip pick langchain-core)
-langchain==0.3.12
-langchain-community==0.3.12
+# LangChain stack (all on latest 0.3.x so langsmith>=0.3.45 works)
+langchain>=0.3.40
+langchain-community>=0.3.40
 langchain-google-vertexai==2.0.28
