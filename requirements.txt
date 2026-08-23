@@ -18,7 +18,7 @@ bigquery-mcp-server==0.1.1
 # LLM abstraction
 litellm==1.59.8
 
-# Evaluation (pinned to avoid langchain.schema breakage)
+# Evaluation
 deepeval==2.3.4
 ragas==0.2.11
 
@@ -36,8 +36,8 @@ google-cloud-build==3.26.0
 python-dotenv==1.0.1
 pydantic==2.10.5
 
-# LangChain stack (pinned for compatibility with deepeval/ragas)
+# LangChain stack (compatible with deepeval/ragas and Python 3.12)
 langchain==0.3.12
 langchain-core==0.3.28
 langchain-community==0.3.12
-langchain-google-vertexai==0.2.10
+langchain-google-vertexai==2.0.28
