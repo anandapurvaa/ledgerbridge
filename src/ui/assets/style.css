@@ -835,3 +835,56 @@ footer,
     color: #64748b !important;
     font-style: italic;
 }
+
+/* -------------------------------------------------------------------- */
+/* Tab and sidebar contrast fixes                                        */
+/* -------------------------------------------------------------------- */
+
+/* Keep inactive tab labels readable against the light console surface. */
+.gradio-container [role="tab"] {
+    color: var(--lb-slate) !important;
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+.gradio-container [role="tab"]:hover,
+.gradio-container [role="tab"][aria-selected="true"] {
+    color: var(--lb-brass-deep) !important;
+    opacity: 1 !important;
+}
+
+/* Ensure the active tab remains distinct and keeps the brass accent. */
+.gradio-container [role="tab"][aria-selected="true"] {
+    border-color: var(--lb-brass) !important;
+}
+
+/* Review instruction: restore readable label and text in the sidebar. */
+.lb-card textarea,
+.lb-card textarea::placeholder,
+.lb-card input,
+.lb-card input::placeholder {
+    color: var(--lb-ink) !important;
+    opacity: 1 !important;
+}
+
+.lb-card textarea {
+    background: var(--lb-surface) !important;
+    border-color: var(--lb-hairline-strong) !important;
+    caret-color: var(--lb-ink) !important;
+}
+
+/* Label is intentionally darker than the general muted labels. */
+.lb-card label span,
+.lb-card [class*="label-wrap"] span,
+.lb-card [class*="block-title"] {
+    color: var(--lb-ink-2) !important;
+    opacity: 1 !important;
+}
+
+/* Protect text within Gradio's textbox wrapper from theme opacity rules. */
+.lb-card [data-testid="textbox"] textarea,
+.lb-card [data-testid="textbox"] textarea * {
+    color: var(--lb-ink) !important;
+    opacity: 1 !important;
+}
