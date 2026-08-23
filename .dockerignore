@@ -1,0 +1,59 @@
+# Python and virtual environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Local configuration and credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+service-account*.json
+credentials*.json
+token.json
+
+# Git and editor files
+.git/
+.gitignore
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Tests, logs, and generated output
+tests/
+logs/
+output/
+reports/
+*.log
+
+# Raw datasets and generated image corpora
+data/raw/
+data/evaluation/
+data/synthetic/
+data/**/*.arrow
+data/**/*.json
+
+# Keep only the runtime LoRA model.
+models/layoutlmv3_lora/
+models/layoutlmv3_lora_weighted_smoke/
+models/layoutlmv3_lora_weighted/checkpoint-*/
+models/**/optimizer.pt
+models/**/rng_state.pth
+models/**/scaler.pt
+models/**/scheduler.pt
+models/**/trainer_state.json
+models/**/training_args.bin
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

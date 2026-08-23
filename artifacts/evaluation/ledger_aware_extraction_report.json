@@ -1,0 +1,2309 @@
+{
+  "summary": {
+    "total_cases": 100,
+    "before": {
+      "all_fields_exact_accuracy": 0.63,
+      "field_accuracy": {
+        "invoice_id": 1.0,
+        "invoice_date": 1.0,
+        "vendor": 1.0,
+        "amount": 0.79,
+        "currency": 1.0,
+        "quantity": 0.79
+      }
+    },
+    "after": {
+      "all_fields_exact_accuracy": 0.82,
+      "field_accuracy": {
+        "invoice_id": 1.0,
+        "invoice_date": 1.0,
+        "vendor": 1.0,
+        "amount": 0.86,
+        "currency": 1.0,
+        "quantity": 0.96
+      }
+    }
+  },
+  "case_results": [
+    {
+      "case_id": "matched-001",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-002",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-003",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-004",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-005",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-006",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-007",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-008",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-009",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "amount",
+          "original_value": 1653.67,
+          "repaired_value": 653.67,
+          "reason": "Detected numeric-prefix OCR corruption where extracted amount ends with ledger amount."
+        }
+      ]
+    },
+    {
+      "case_id": "matched-010",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 13,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "matched-011",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "amount",
+          "original_value": 1587.91,
+          "repaired_value": 587.91,
+          "reason": "Detected numeric-prefix OCR corruption where extracted amount ends with ledger amount."
+        }
+      ]
+    },
+    {
+      "case_id": "matched-012",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 15,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "matched-013",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-014",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-015",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "amount",
+          "original_value": 1552.57,
+          "repaired_value": 552.57,
+          "reason": "Detected numeric-prefix OCR corruption where extracted amount ends with ledger amount."
+        },
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 8,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "matched-016",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-017",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-018",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "matched-019",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "amount",
+          "original_value": 15608.99,
+          "repaired_value": 5608.99,
+          "reason": "Detected numeric-prefix OCR corruption where extracted amount ends with ledger amount."
+        }
+      ]
+    },
+    {
+      "case_id": "matched-020",
+      "scenario": "matched",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-001",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-002",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 3,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "amount_mismatch-003",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-004",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-005",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-006",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 20,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "amount_mismatch-007",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-008",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-009",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-010",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-011",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 20,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "amount_mismatch-012",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-013",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-014",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-015",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-016",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-017",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-018",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 16,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "amount_mismatch-019",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "amount_mismatch-020",
+      "scenario": "amount_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-001",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-002",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-003",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-004",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-005",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 4,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "fx_mismatch-006",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-007",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-008",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-009",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-010",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-011",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-012",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-013",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-014",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-015",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-016",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-017",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-018",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "fx_mismatch-019",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 12,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "fx_mismatch-020",
+      "scenario": "fx_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-001",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-002",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-003",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-004",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-005",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-006",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-007",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-008",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-009",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-010",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-011",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-012",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-013",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-014",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-015",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-016",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-017",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-018",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "quantity_mismatch-019",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 11,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "quantity_mismatch-020",
+      "scenario": "quantity_mismatch",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 11,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "duplicate_charge-001",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "duplicate_charge-002",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "duplicate_charge-003",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "amount",
+          "original_value": 212193.76,
+          "repaired_value": 2193.76,
+          "reason": "Detected numeric-prefix OCR corruption where extracted amount ends with ledger amount."
+        },
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 9,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "duplicate_charge-004",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 5,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "duplicate_charge-005",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "duplicate_charge-006",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 8,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "duplicate_charge-007",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "duplicate_charge-008",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 11,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "duplicate_charge-009",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "amount",
+          "original_value": 2155.78,
+          "repaired_value": 155.78,
+          "reason": "Detected numeric-prefix OCR corruption where extracted amount ends with ledger amount."
+        }
+      ]
+    },
+    {
+      "case_id": "duplicate_charge-010",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "duplicate_charge-011",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "duplicate_charge-012",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 3,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "duplicate_charge-013",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 16,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "duplicate_charge-014",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 15,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "duplicate_charge-015",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "duplicate_charge-016",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "duplicate_charge-017",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": false
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "quantity",
+          "original_value": 1,
+          "repaired_value": 17,
+          "reason": "OCR quantity fell back to 1 while the candidate ledger record has a higher quantity."
+        }
+      ]
+    },
+    {
+      "case_id": "duplicate_charge-018",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "duplicate_charge-019",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": []
+    },
+    {
+      "case_id": "duplicate_charge-020",
+      "scenario": "duplicate_charge",
+      "before_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": false,
+        "currency": true,
+        "quantity": true
+      },
+      "after_correct": {
+        "invoice_id": true,
+        "invoice_date": true,
+        "vendor": true,
+        "amount": true,
+        "currency": true,
+        "quantity": true
+      },
+      "repairs": [
+        {
+          "field": "amount",
+          "original_value": 2351.8,
+          "repaired_value": 351.8,
+          "reason": "Detected numeric-prefix OCR corruption where extracted amount ends with ledger amount."
+        }
+      ]
+    }
+  ]
+}

@@ -6,21 +6,27 @@ from typing_extensions import TypedDict
 class AgentState(TypedDict):
     user_query: str
 
-    # Structured invoice fields. For now these are synthetic/manual.
-    # The Extractor node will populate this later from an image.
+    # Invoice image input and structured extraction output.
+    invoice_image_path: str
     extracted_fields: dict[str, Any]
+    extraction_result: dict[str, Any]
 
-    # Data returned from the ledger MCP tool.
+    # Optional per-run ledger source.
+    ledger_table_id: str
+
+    # Data returned from the ledger query node.
     ledger_rows: list[dict[str, Any]]
 
-    # Matching output.
+    # Matching and reconciliation outputs.
     matched_ledger_records: list[dict[str, Any]]
     unmatched_cases: list[dict[str, Any]]
     reconciliation_result: dict[str, Any]
+    candidate_matches: list[dict[str, Any]]
 
-    # Future Investigator and Resolution-Drafter outputs.
+    # Investigation and resolution-drafting outputs.
     hypotheses: list[str]
+    investigation: dict[str, Any]
     dispute_letter_draft: str
+
+    # Audit output.
     audit_event_id: str
-    invoice_image_path: str
-    extraction_result: dict[str, Any]

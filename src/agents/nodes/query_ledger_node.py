@@ -62,7 +62,12 @@ async def call_query_ledger(query: str) -> list[dict]:
 
 
 def query_ledger_node(state: AgentState) -> dict:
-    query = """
+    table_id = state.get(
+        "ledger_table_id",
+        "cloudprojects-506123.ledgerbridge.invoices",
+    )
+
+    query = f"""
         SELECT
             invoice_id,
             invoice_date,
@@ -72,7 +77,7 @@ def query_ledger_node(state: AgentState) -> dict:
             quantity,
             fx_rate,
             line_items
-        FROM `cloudprojects-506123.ledgerbridge.invoices`
+        FROM `{table_id}`
         LIMIT 500
     """
 

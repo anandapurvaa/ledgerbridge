@@ -45,7 +45,13 @@ def test_first_submission_is_not_duplicate_then_second_is_duplicate():
 
     first_duplicate_result = duplicate_detection_node(first_state)
 
-    assert first_duplicate_result == {}
+    assert first_duplicate_result[
+        "reconciliation_result"
+    ]["status"] == "matched"
+
+    assert first_duplicate_result[
+        "candidate_matches"
+    ] == []
 
     audit_update = audit_writer_node(first_state)
 

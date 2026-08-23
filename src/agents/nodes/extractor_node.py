@@ -1,19 +1,12 @@
-# src/agents/nodes/extractor_node.py
 from pathlib import Path
 
 from src.agents.state import AgentState
-from src.extraction.extraction_service import (
-    extract_invoice_from_image,
+from src.extraction.hybrid_extractor import (
+    extract_invoice_hybrid,
 )
 
 
 def extractor_node(state: AgentState) -> dict:
-    """
-    Extract structured fields from a scanned invoice/receipt.
-
-    Expected input:
-        state["invoice_image_path"] = path to the uploaded image.
-    """
     image_path = state.get("invoice_image_path")
 
     if not image_path:
@@ -45,18 +38,27 @@ def extractor_node(state: AgentState) -> dict:
             },
         }
 
-    extraction_result = extract_invoice_from_image(
-        image_path,
+    extraction = extract_invoice_hybrid(
+        image_path=image_path,
+        use_layoutlmv3=True,
+    )
+
+    layoutlmv3_result = extraction.get(
+        "layoutlmv3_result"
     )
 
     return {
-        "extracted_fields": extraction_result[
+        "extracted_fields": extraction[
             "extracted_fields"
         ],
         "extraction_result": {
-            "word_labels": extraction_result["word_labels"],
-            "word_scores": extraction_result["word_scores"],
-            "spans": [
+            "ocr_mean_confidence": extraction[
+                "ocr_result"
+            ]["mean_confidence"],
+            "word_count": len(
+                extraction["ocr_result"]["words"]
+            ),
+            "layoutlmv3_spans": [
                 {
                     "entity_type": span.entity_type,
                     "text": span.text,
@@ -64,10 +66,11 @@ def extractor_node(state: AgentState) -> dict:
                     "start_word": span.start_word,
                     "end_word": span.end_word,
                 }
-                for span in extraction_result["spans"]
+                for span in (
+                    layoutlmv3_result["spans"]
+                    if layoutlmv3_result
+                    else []
+                )
             ],
-            "ocr_mean_confidence": extraction_result[
-                "ocr_result"
-            ]["mean_confidence"],
         },
     }

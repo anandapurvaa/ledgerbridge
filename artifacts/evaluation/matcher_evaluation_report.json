@@ -1,0 +1,2029 @@
+{
+  "summary": {
+    "total_cases": 150,
+    "correct_cases": 150,
+    "accuracy": 1.0,
+    "duplicate_charge_note": "Duplicate charges are mapped to matched in this baseline. Duplicate detection requires persisted audit history and will be measured separately after that capability exists."
+  },
+  "classification_report": {
+    "amount_mismatch": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "fx_mismatch": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "matched": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 60.0
+    },
+    "quantity_mismatch": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 150.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 150.0
+    }
+  },
+  "case_results": [
+    {
+      "case_id": "matched-001",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-002",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-003",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-004",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-005",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-006",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-007",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-008",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-009",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-010",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-011",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-012",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-013",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-014",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-015",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-016",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-017",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-018",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-019",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-020",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-021",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-022",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-023",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-024",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-025",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-026",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-027",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-028",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-029",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "matched-030",
+      "scenario": "matched",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "fx_mismatch-001",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9991,
+      "semantic_score": 0.9991,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-002",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9985,
+      "semantic_score": 0.9985,
+      "details": {
+        "invoice_fx_rate": 1.0696,
+        "ledger_fx_rate": 0.9904,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-003",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9961,
+      "semantic_score": 0.9961,
+      "details": {
+        "invoice_fx_rate": 1.1905,
+        "ledger_fx_rate": 1.1023,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-004",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.999,
+      "semantic_score": 0.999,
+      "details": {
+        "invoice_fx_rate": 0.9732,
+        "ledger_fx_rate": 0.9011,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-005",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9977,
+      "semantic_score": 0.9977,
+      "details": {
+        "invoice_fx_rate": 0.971,
+        "ledger_fx_rate": 0.8991,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-006",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9995,
+      "semantic_score": 0.9995,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-007",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9987,
+      "semantic_score": 0.9987,
+      "details": {
+        "invoice_fx_rate": 1.0999,
+        "ledger_fx_rate": 1.0184,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-008",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9988,
+      "semantic_score": 0.9988,
+      "details": {
+        "invoice_fx_rate": 0.982,
+        "ledger_fx_rate": 0.9093,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-009",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9987,
+      "semantic_score": 0.9987,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-010",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9987,
+      "semantic_score": 0.9987,
+      "details": {
+        "invoice_fx_rate": 1.2183,
+        "ledger_fx_rate": 1.1281,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-011",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.999,
+      "semantic_score": 0.999,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-012",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9965,
+      "semantic_score": 0.9965,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-013",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9971,
+      "semantic_score": 0.9971,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-014",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.996,
+      "semantic_score": 0.996,
+      "details": {
+        "invoice_fx_rate": 1.3497,
+        "ledger_fx_rate": 1.2497,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-015",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9992,
+      "semantic_score": 0.9992,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-016",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9988,
+      "semantic_score": 0.9988,
+      "details": {
+        "invoice_fx_rate": 0.8651,
+        "ledger_fx_rate": 0.801,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-017",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.999,
+      "semantic_score": 0.999,
+      "details": {
+        "invoice_fx_rate": 1.3293,
+        "ledger_fx_rate": 1.2308,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-018",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9993,
+      "semantic_score": 0.9993,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-019",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9993,
+      "semantic_score": 0.9993,
+      "details": {
+        "invoice_fx_rate": 1.1479,
+        "ledger_fx_rate": 1.0629,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-020",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.999,
+      "semantic_score": 0.999,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-021",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.995,
+      "semantic_score": 0.995,
+      "details": {
+        "invoice_fx_rate": 0.9783,
+        "ledger_fx_rate": 0.9058,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-022",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9986,
+      "semantic_score": 0.9986,
+      "details": {
+        "invoice_fx_rate": 0.9039,
+        "ledger_fx_rate": 0.8369,
+        "relative_fx_rate_difference": 0.0801
+      }
+    },
+    {
+      "case_id": "fx_mismatch-023",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9975,
+      "semantic_score": 0.9975,
+      "details": {
+        "invoice_fx_rate": 1.0167,
+        "ledger_fx_rate": 0.9414,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-024",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9988,
+      "semantic_score": 0.9988,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-025",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9993,
+      "semantic_score": 0.9993,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-026",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9986,
+      "semantic_score": 0.9986,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-027",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9987,
+      "semantic_score": 0.9987,
+      "details": {
+        "invoice_fx_rate": 1.0436,
+        "ledger_fx_rate": 0.9663,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-028",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.999,
+      "semantic_score": 0.999,
+      "details": {
+        "invoice_fx_rate": 1.3421,
+        "ledger_fx_rate": 1.2427,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-029",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9953,
+      "semantic_score": 0.9953,
+      "details": {
+        "invoice_fx_rate": 1.1864,
+        "ledger_fx_rate": 1.0985,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "fx_mismatch-030",
+      "scenario": "fx_mismatch",
+      "baseline_expected_status": "fx_mismatch",
+      "predicted_status": "fx_mismatch",
+      "correct": true,
+      "confidence": 0.9982,
+      "semantic_score": 0.9982,
+      "details": {
+        "invoice_fx_rate": 1.08,
+        "ledger_fx_rate": 1.0,
+        "relative_fx_rate_difference": 0.08
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-001",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9991,
+      "semantic_score": 0.9991,
+      "details": {
+        "invoice_quantity": 22,
+        "ledger_quantity": 20,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-002",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9985,
+      "semantic_score": 0.9985,
+      "details": {
+        "invoice_quantity": 18,
+        "ledger_quantity": 16,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-003",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9992,
+      "semantic_score": 0.9992,
+      "details": {
+        "invoice_quantity": 16,
+        "ledger_quantity": 14,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-004",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9979,
+      "semantic_score": 0.9979,
+      "details": {
+        "invoice_quantity": 11,
+        "ledger_quantity": 9,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-005",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9986,
+      "semantic_score": 0.9986,
+      "details": {
+        "invoice_quantity": 3,
+        "ledger_quantity": 1,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-006",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9987,
+      "semantic_score": 0.9987,
+      "details": {
+        "invoice_quantity": 4,
+        "ledger_quantity": 2,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-007",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9984,
+      "semantic_score": 0.9984,
+      "details": {
+        "invoice_quantity": 4,
+        "ledger_quantity": 2,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-008",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9987,
+      "semantic_score": 0.9987,
+      "details": {
+        "invoice_quantity": 24,
+        "ledger_quantity": 22,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-009",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9986,
+      "semantic_score": 0.9986,
+      "details": {
+        "invoice_quantity": 16,
+        "ledger_quantity": 14,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-010",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9995,
+      "semantic_score": 0.9995,
+      "details": {
+        "invoice_quantity": 16,
+        "ledger_quantity": 14,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-011",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9984,
+      "semantic_score": 0.9984,
+      "details": {
+        "invoice_quantity": 26,
+        "ledger_quantity": 24,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-012",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.999,
+      "semantic_score": 0.999,
+      "details": {
+        "invoice_quantity": 4,
+        "ledger_quantity": 2,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-013",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9991,
+      "semantic_score": 0.9991,
+      "details": {
+        "invoice_quantity": 10,
+        "ledger_quantity": 8,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-014",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.998,
+      "semantic_score": 0.998,
+      "details": {
+        "invoice_quantity": 5,
+        "ledger_quantity": 3,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-015",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9982,
+      "semantic_score": 0.9982,
+      "details": {
+        "invoice_quantity": 20,
+        "ledger_quantity": 18,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-016",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9991,
+      "semantic_score": 0.9991,
+      "details": {
+        "invoice_quantity": 11,
+        "ledger_quantity": 9,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-017",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9991,
+      "semantic_score": 0.9991,
+      "details": {
+        "invoice_quantity": 22,
+        "ledger_quantity": 20,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-018",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9988,
+      "semantic_score": 0.9988,
+      "details": {
+        "invoice_quantity": 4,
+        "ledger_quantity": 2,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-019",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9995,
+      "semantic_score": 0.9995,
+      "details": {
+        "invoice_quantity": 16,
+        "ledger_quantity": 14,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-020",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9965,
+      "semantic_score": 0.9965,
+      "details": {
+        "invoice_quantity": 6,
+        "ledger_quantity": 4,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-021",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9988,
+      "semantic_score": 0.9988,
+      "details": {
+        "invoice_quantity": 15,
+        "ledger_quantity": 13,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-022",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9951,
+      "semantic_score": 0.9951,
+      "details": {
+        "invoice_quantity": 15,
+        "ledger_quantity": 13,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-023",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9989,
+      "semantic_score": 0.9989,
+      "details": {
+        "invoice_quantity": 20,
+        "ledger_quantity": 18,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-024",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9988,
+      "semantic_score": 0.9988,
+      "details": {
+        "invoice_quantity": 22,
+        "ledger_quantity": 20,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-025",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9982,
+      "semantic_score": 0.9982,
+      "details": {
+        "invoice_quantity": 18,
+        "ledger_quantity": 16,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-026",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9988,
+      "semantic_score": 0.9988,
+      "details": {
+        "invoice_quantity": 19,
+        "ledger_quantity": 17,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-027",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9974,
+      "semantic_score": 0.9974,
+      "details": {
+        "invoice_quantity": 12,
+        "ledger_quantity": 10,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-028",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9991,
+      "semantic_score": 0.9991,
+      "details": {
+        "invoice_quantity": 18,
+        "ledger_quantity": 16,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-029",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.999,
+      "semantic_score": 0.999,
+      "details": {
+        "invoice_quantity": 23,
+        "ledger_quantity": 21,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "quantity_mismatch-030",
+      "scenario": "quantity_mismatch",
+      "baseline_expected_status": "quantity_mismatch",
+      "predicted_status": "quantity_mismatch",
+      "correct": true,
+      "confidence": 0.9992,
+      "semantic_score": 0.9992,
+      "details": {
+        "invoice_quantity": 10,
+        "ledger_quantity": 8,
+        "quantity_delta": 2
+      }
+    },
+    {
+      "case_id": "amount_mismatch-001",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9994,
+      "semantic_score": 0.9994,
+      "details": {
+        "invoice_amount": 2247.75,
+        "ledger_amount": 2200.5,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-002",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9995,
+      "semantic_score": 0.9995,
+      "details": {
+        "invoice_amount": 2403.63,
+        "ledger_amount": 2356.38,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-003",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9995,
+      "semantic_score": 0.9995,
+      "details": {
+        "invoice_amount": 4678.05,
+        "ledger_amount": 4630.8,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-004",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9995,
+      "semantic_score": 0.9995,
+      "details": {
+        "invoice_amount": 8970.77,
+        "ledger_amount": 8923.52,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-005",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9996,
+      "semantic_score": 0.9996,
+      "details": {
+        "invoice_amount": 9434.61,
+        "ledger_amount": 9387.36,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-006",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9986,
+      "semantic_score": 0.9986,
+      "details": {
+        "invoice_amount": 3047.31,
+        "ledger_amount": 3000.06,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-007",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9995,
+      "semantic_score": 0.9995,
+      "details": {
+        "invoice_amount": 993.69,
+        "ledger_amount": 946.44,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-008",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9966,
+      "semantic_score": 0.9966,
+      "details": {
+        "invoice_amount": 1893.2,
+        "ledger_amount": 1845.95,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-009",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9993,
+      "semantic_score": 0.9993,
+      "details": {
+        "invoice_amount": 4206.34,
+        "ledger_amount": 4159.09,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-010",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9996,
+      "semantic_score": 0.9996,
+      "details": {
+        "invoice_amount": 2822.47,
+        "ledger_amount": 2775.22,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-011",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9993,
+      "semantic_score": 0.9993,
+      "details": {
+        "invoice_amount": 270.59,
+        "ledger_amount": 223.34,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-012",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9986,
+      "semantic_score": 0.9986,
+      "details": {
+        "invoice_amount": 3671.32,
+        "ledger_amount": 3624.07,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-013",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9994,
+      "semantic_score": 0.9994,
+      "details": {
+        "invoice_amount": 6498.18,
+        "ledger_amount": 6450.93,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-014",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9995,
+      "semantic_score": 0.9995,
+      "details": {
+        "invoice_amount": 1196.12,
+        "ledger_amount": 1148.87,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-015",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9989,
+      "semantic_score": 0.9989,
+      "details": {
+        "invoice_amount": 9068.66,
+        "ledger_amount": 9021.41,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-016",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9995,
+      "semantic_score": 0.9995,
+      "details": {
+        "invoice_amount": 688.63,
+        "ledger_amount": 641.38,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-017",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9994,
+      "semantic_score": 0.9994,
+      "details": {
+        "invoice_amount": 4397.61,
+        "ledger_amount": 4350.36,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-018",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9988,
+      "semantic_score": 0.9988,
+      "details": {
+        "invoice_amount": 1722.33,
+        "ledger_amount": 1675.08,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-019",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.999,
+      "semantic_score": 0.999,
+      "details": {
+        "invoice_amount": 3768.26,
+        "ledger_amount": 3721.01,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-020",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9997,
+      "semantic_score": 0.9997,
+      "details": {
+        "invoice_amount": 579.09,
+        "ledger_amount": 531.84,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-021",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9998,
+      "semantic_score": 0.9998,
+      "details": {
+        "invoice_amount": 2823.16,
+        "ledger_amount": 2775.91,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-022",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9993,
+      "semantic_score": 0.9993,
+      "details": {
+        "invoice_amount": 925.09,
+        "ledger_amount": 877.84,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-023",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9996,
+      "semantic_score": 0.9996,
+      "details": {
+        "invoice_amount": 1178.55,
+        "ledger_amount": 1131.3,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-024",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9986,
+      "semantic_score": 0.9986,
+      "details": {
+        "invoice_amount": 3022.24,
+        "ledger_amount": 2974.99,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-025",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9998,
+      "semantic_score": 0.9998,
+      "details": {
+        "invoice_amount": 756.65,
+        "ledger_amount": 709.4,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-026",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9994,
+      "semantic_score": 0.9994,
+      "details": {
+        "invoice_amount": 8806.13,
+        "ledger_amount": 8758.88,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-027",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9995,
+      "semantic_score": 0.9995,
+      "details": {
+        "invoice_amount": 7952.5,
+        "ledger_amount": 7905.25,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-028",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9991,
+      "semantic_score": 0.9991,
+      "details": {
+        "invoice_amount": 8557.28,
+        "ledger_amount": 8510.03,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-029",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9989,
+      "semantic_score": 0.9989,
+      "details": {
+        "invoice_amount": 3650.59,
+        "ledger_amount": 3603.34,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "amount_mismatch-030",
+      "scenario": "amount_mismatch",
+      "baseline_expected_status": "amount_mismatch",
+      "predicted_status": "amount_mismatch",
+      "correct": true,
+      "confidence": 0.9997,
+      "semantic_score": 0.9997,
+      "details": {
+        "invoice_amount": 5290.11,
+        "ledger_amount": 5242.86,
+        "amount_delta": 47.25
+      }
+    },
+    {
+      "case_id": "duplicate_charge-001",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-002",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-003",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-004",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-005",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-006",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-007",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-008",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-009",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-010",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-011",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-012",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-013",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-014",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-015",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-016",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-017",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-018",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-019",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-020",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-021",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-022",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-023",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-024",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-025",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-026",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-027",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-028",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-029",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    },
+    {
+      "case_id": "duplicate_charge-030",
+      "scenario": "duplicate_charge",
+      "baseline_expected_status": "matched",
+      "predicted_status": "matched",
+      "correct": true,
+      "confidence": 1.0,
+      "semantic_score": 1.0,
+      "details": {
+        "reason": "Identity, currency, quantity, FX rate, and amount agree within configured tolerances."
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+# Python environments and cache
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+service-account*.json
+credentials*.json
+token.json
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs and generated artifacts
+logs/
+output/
+reports/
+*.log
+
+# Large or reproducible datasets
+data/raw/
+data/synthetic/
+data/evaluation/
+data/**/*.arrow
+data/**/*.json
+
+# Trained model artifacts and checkpoints
+models/
+!models/.gitkeep
+
+# Build and packaging output
+build/
+dist/
+*.egg-info/
+
+# Node/Playwright caches if created
+node_modules/
+playwright-report/
+test-results/

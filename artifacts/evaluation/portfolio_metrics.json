@@ -1,0 +1,78 @@
+{
+  "extraction": {
+    "metric_name": "Synthetic invoice field exact-match accuracy",
+    "before_ledger_aware_repair": 0.63,
+    "after_ledger_aware_repair": 0.82,
+    "field_accuracy_after_repair": {
+      "invoice_id": 1.0,
+      "invoice_date": 1.0,
+      "vendor": 1.0,
+      "amount": 0.86,
+      "currency": 1.0,
+      "quantity": 0.96
+    },
+    "interpretation": "Controlled synthetic OCR benchmark. Ledger-aware repair is reported separately because it uses retrieved ledger evidence."
+  },
+  "reconciliation": {
+    "metric_name": "Held-out image-to-reconciliation accuracy",
+    "accuracy": 1.0,
+    "total_cases": 30,
+    "correct_cases": 30,
+    "per_class": {
+      "matched": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6.0
+      },
+      "amount_mismatch": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6.0
+      },
+      "fx_mismatch": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6.0
+      },
+      "quantity_mismatch": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6.0
+      },
+      "duplicate_charge": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6.0
+      }
+    },
+    "protocol": {
+      "dataset": "LedgerBridge synthetic invoice-image held-out evaluation set",
+      "heldout_cases": 30,
+      "split_method": "Scenario-stratified fixed-seed split",
+      "random_seed": 42,
+      "pipeline": [
+        "Tesseract OCR",
+        "heuristic field extraction",
+        "exact invoice-ID ledger candidate resolution",
+        "conservative ledger-aware OCR repair",
+        "FAISS candidate retrieval fallback",
+        "financial reconciliation rules",
+        "in-memory prior-match audit simulation"
+      ],
+      "duplicate_protocol": "Duplicate cases are seeded as previously accepted matches in an isolated in-memory audit simulator."
+    }
+  },
+  "model_extraction": {
+    "metric_name": "LayoutLMv3 LoRA SROIE entity-level F1",
+    "overall_entity_f1": 0.6556,
+    "vendor_f1": 0.6417,
+    "date_f1": 0.7611,
+    "total_f1": 0.616,
+    "dataset_note": "SROIE scanned-receipt benchmark; not equivalent to the synthetic invoice reconciliation benchmark."
+  }
+}
