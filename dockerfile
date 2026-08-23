@@ -26,4 +26,4 @@ RUN mkdir -p /app/data/synthetic/invoice_images
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "python -m src.ui.app"]
+CMD ["python", "-m", "src.ui.app"]
