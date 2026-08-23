@@ -43,10 +43,6 @@ data/evaluation/
 data/**/*.arrow
 data/**/*.json
 
-# Trained model artifacts and checkpoints
-models/
-!models/.gitkeep
-
 # Build and packaging output
 build/
 dist/
