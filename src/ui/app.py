@@ -530,7 +530,6 @@ def build_app() -> gr.Blocks:
                             )
 
                             user_query = gr.Textbox(
-                                label="Review instruction",
                                 value=(
                                     "Reconcile this invoice and create "
                                     "a dispute draft if a discrepancy "
