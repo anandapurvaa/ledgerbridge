@@ -12,18 +12,18 @@ langgraph==0.2.61
 crewai==0.95.0
 
 # MCP
-mcp==1.6.0
+mcp>=1.6.0
 bigquery-mcp-server==0.1.1
 
-# LLM abstraction
-litellm==1.59.8
+# LLM abstraction (allow minor patch bumps for httpx compatibility)
+litellm>=1.59.8
 
 # Evaluation
 deepeval==2.3.4
 ragas==0.2.11
 
 # UI / testing / infra
-gradio==5.10.0
+gradio>=5.10.0
 playwright==1.49.1
 pytest==8.3.4
 
@@ -40,4 +40,4 @@ pydantic==2.10.5
 langchain==0.3.12
 langchain-core==0.3.28
 langchain-community==0.3.12
-langchain-google-vertexai==2.0.28
+langchain-google-vertexai>=2.0.28
