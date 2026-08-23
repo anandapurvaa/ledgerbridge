@@ -21,3 +21,6 @@ class AgentState(TypedDict):
     # Future Investigator and Resolution-Drafter outputs.
     hypotheses: list[str]
     dispute_letter_draft: str
+    audit_event_id: str
+    invoice_image_path: str
+    extraction_result: dict[str, Any]

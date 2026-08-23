@@ -1,4 +1,3 @@
-# src/matching/reconciliation_rules.py
 from __future__ import annotations
 
 from src.matching.schemas import (
@@ -6,7 +5,6 @@ from src.matching.schemas import (
     MatchCandidate,
     ReconciliationResult,
 )
-
 
 AMOUNT_ABSOLUTE_TOLERANCE = 0.02
 FX_RATE_TOLERANCE = 0.005
@@ -19,6 +17,23 @@ def relative_difference(expected: float, actual: float) -> float:
         return 0.0 if actual == 0 else 1.0
 
     return abs(expected - actual) / abs(expected)
+
+
+def has_same_identity(
+    invoice: InvoiceRecord,
+    ledger: InvoiceRecord,
+) -> bool:
+    """
+    Invoice ID is the strongest identity signal.
+    If it is unavailable or differs, use vendor + date as a weaker fallback.
+    """
+    if invoice.invoice_id and invoice.invoice_id == ledger.invoice_id:
+        return True
+
+    return (
+        invoice.vendor.strip().lower() == ledger.vendor.strip().lower()
+        and invoice.invoice_date == ledger.invoice_date
+    )
 
 
 def classify_reconciliation(
@@ -35,12 +50,14 @@ def classify_reconciliation(
         )
 
     best = candidates[0]
+    ledger = best.ledger_record
 
+    # 1. Candidate retrieval confidence comes first.
     if best.semantic_score < SEMANTIC_MATCH_THRESHOLD:
         return ReconciliationResult(
             status="unmatched",
             confidence=round(1 - max(best.semantic_score, 0), 4),
-            best_match=best.ledger_record,
+            best_match=ledger,
             candidate_matches=candidates,
             discrepancy_details={
                 "reason": "Highest semantic similarity is below the match threshold.",
@@ -48,25 +65,49 @@ def classify_reconciliation(
             },
         )
 
-    if len(candidates) > 1:
-        score_gap = best.semantic_score - candidates[1].semantic_score
+    # 2. A verified invoice identity is stronger than FAISS score ambiguity.
+    # This allows exact known invoices and known discrepancy scenarios
+    # to proceed to deterministic financial validation.
+    if not has_same_identity(invoice, ledger):
+        if len(candidates) > 1:
+            second = candidates[1]
+            score_gap = best.semantic_score - second.semantic_score
 
-        if score_gap < AMBIGUITY_MARGIN:
-            return ReconciliationResult(
-                status="ambiguous",
-                confidence=round(best.semantic_score, 4),
-                best_match=best.ledger_record,
-                candidate_matches=candidates,
-                discrepancy_details={
-                    "reason": "Two ledger candidates have near-identical similarity scores.",
-                    "best_score": best.semantic_score,
-                    "second_score": candidates[1].semantic_score,
-                    "score_gap": round(score_gap, 4),
-                },
-            )
+            if score_gap < AMBIGUITY_MARGIN:
+                return ReconciliationResult(
+                    status="ambiguous",
+                    confidence=round(best.semantic_score, 4),
+                    best_match=ledger,
+                    candidate_matches=candidates,
+                    discrepancy_details={
+                        "reason": (
+                            "No stable invoice identity was verified and the "
+                            "top two semantic candidates are too similar."
+                        ),
+                        "best_score": best.semantic_score,
+                        "second_score": second.semantic_score,
+                        "score_gap": round(score_gap, 4),
+                    },
+                )
 
-    ledger = best.ledger_record
+        return ReconciliationResult(
+            status="unmatched",
+            confidence=round(1 - best.semantic_score, 4),
+            best_match=ledger,
+            candidate_matches=candidates,
+            discrepancy_details={
+                "reason": (
+                    "Top candidate does not share an invoice ID or a "
+                    "vendor-and-date identity with the input invoice."
+                ),
+                "input_invoice_id": invoice.invoice_id,
+                "candidate_invoice_id": ledger.invoice_id,
+                "input_vendor": invoice.vendor,
+                "candidate_vendor": ledger.vendor,
+            },
+        )
 
+    # 3. Once identity is confirmed, run financial controls.
     if invoice.currency != ledger.currency:
         return ReconciliationResult(
             status="currency_mismatch",
@@ -76,25 +117,6 @@ def classify_reconciliation(
             discrepancy_details={
                 "invoice_currency": invoice.currency,
                 "ledger_currency": ledger.currency,
-            },
-        )
-
-    if invoice.invoice_id == ledger.invoice_id:
-        same_identity = True
-    else:
-        same_identity = (
-            invoice.vendor.strip().lower() == ledger.vendor.strip().lower()
-            and invoice.invoice_date == ledger.invoice_date
-        )
-
-    if not same_identity:
-        return ReconciliationResult(
-            status="unmatched",
-            confidence=round(1 - best.semantic_score, 4),
-            best_match=ledger,
-            candidate_matches=candidates,
-            discrepancy_details={
-                "reason": "Candidate does not share the invoice ID or vendor-date identity.",
             },
         )
 
@@ -141,12 +163,16 @@ def classify_reconciliation(
             },
         )
 
+    # 4. Identity and all financial checks agree.
     return ReconciliationResult(
         status="matched",
         confidence=round(best.semantic_score, 4),
         best_match=ledger,
         candidate_matches=candidates,
         discrepancy_details={
-            "reason": "Vendor/ID, currency, quantity, FX rate, and amount agree within configured tolerance.",
+            "reason": (
+                "Identity, currency, quantity, FX rate, and amount agree "
+                "within configured tolerances."
+            ),
         },
     )
