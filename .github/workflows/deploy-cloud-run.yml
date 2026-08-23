@@ -1,0 +1,96 @@
+name: Deploy LedgerBridge to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  PROJECT_ID: cloudprojects-506123
+  REGION: europe-west3
+  ARTIFACT_REPOSITORY: ledgerbridge
+  SERVICE_NAME: ledgerbridge
+  IMAGE_NAME: ledgerbridge
+  ENVIRONMENT: synthetic
+  RUNTIME_SERVICE_ACCOUNT: ledgerbridge-cloud-run@cloudprojects-506123.iam.gserviceaccount.com
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_DEPLOY_SERVICE_ACCOUNT }}
+
+      - name: Set up Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: |
+          gcloud auth configure-docker \
+            "${REGION}-docker.pkg.dev" \
+            --quiet
+
+      - name: Ensure Artifact Registry repository exists
+        run: |
+          if ! gcloud artifacts repositories describe \
+            "${ARTIFACT_REPOSITORY}" \
+            --location="${REGION}" \
+            --project="${PROJECT_ID}" \
+            >/dev/null 2>&1; then
+            gcloud artifacts repositories create \
+              "${ARTIFACT_REPOSITORY}" \
+              --repository-format=docker \
+              --location="${REGION}" \
+              --description="LedgerBridge container images" \
+              --project="${PROJECT_ID}"
+          fi
+
+      - name: Build and push container image
+        env:
+          IMAGE_URI: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+        run: |
+          docker build \
+            --tag "${IMAGE_URI}" \
+            --tag "${REGION}-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_REPOSITORY}/${IMAGE_NAME}:latest" \
+            .
+          docker push "${IMAGE_URI}"
+          docker push "${REGION}-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_REPOSITORY}/${IMAGE_NAME}:latest"
+
+      - name: Deploy private Cloud Run service
+        env:
+          IMAGE_URI: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+        run: |
+          gcloud run deploy "${SERVICE_NAME}" \
+            --image="${IMAGE_URI}" \
+            --region="${REGION}" \
+            --project="${PROJECT_ID}" \
+            --platform=managed \
+            --no-allow-unauthenticated \
+            --port=8080 \
+            --memory=4Gi \
+            --cpu=2 \
+            --timeout=900 \
+            --min-instances=0 \
+            --max-instances=1 \
+            --service-account="${RUNTIME_SERVICE_ACCOUNT}" \
+            --set-env-vars="LEDGERBRIDGE_ENVIRONMENT=${ENVIRONMENT},LEDGERBRIDGE_PROJECT_ID=${PROJECT_ID},LEDGERBRIDGE_DATASET_ID=ledgerbridge,LEDGERBRIDGE_LEDGER_TABLE=${PROJECT_ID}.ledgerbridge.synthetic_evaluation_ledger,LEDGERBRIDGE_RECONCILIATION_AUDIT_TABLE=${PROJECT_ID}.ledgerbridge.synthetic_reconciliation_audit,LEDGERBRIDGE_DRAFT_APPROVAL_TABLE=${PROJECT_ID}.ledgerbridge.synthetic_draft_approvals,LEDGERBRIDGE_REVIEWER_ID=github_cloud_run"
+
+      - name: Show deployed service URL
+        run: |
+          gcloud run services describe "${SERVICE_NAME}" \
+            --region="${REGION}" \
+            --project="${PROJECT_ID}" \
+            --format="value(status.url)"
