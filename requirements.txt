@@ -12,7 +12,7 @@ langgraph==0.2.61
 crewai==0.95.0
 
 # MCP
-mcp==1.2.0
+mcp==1.6.0
 bigquery-mcp-server==0.1.1
 
 # LLM abstraction
