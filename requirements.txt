@@ -36,8 +36,7 @@ google-cloud-build==3.26.0
 python-dotenv==1.0.1
 pydantic==2.10.5
 
-# LangChain stack (all on 0.3.x line, mutually compatible)
+# LangChain stack (all 0.3.x, let pip pick langchain-core)
 langchain==0.3.12
-langchain-core==0.3.28
 langchain-community==0.3.12
 langchain-google-vertexai==2.0.28
