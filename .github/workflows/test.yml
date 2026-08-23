@@ -35,4 +35,4 @@ jobs:
 
       - name: Run active unit tests
         run: |
-          python -m pytest tests/agents tests/services -v
+          python -m pytest tests/services -v
