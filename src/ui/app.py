@@ -518,6 +518,7 @@ def build_app() -> gr.Blocks:
                                 label="Invoice image",
                                 file_types=["image"],
                                 type="filepath",
+                                elem_id="invoice-image-upload",
                             )
 
                             uploaded_file_name_html = gr.HTML(
@@ -536,6 +537,8 @@ def build_app() -> gr.Blocks:
                                     "is found."
                                 ),
                                 lines=3,
+                                show_label=False,
+                                elem_id="review-instruction",
                             )
 
                             run_button = gr.Button(
@@ -614,6 +617,7 @@ def build_app() -> gr.Blocks:
                             interactive=False,
                             wrap=True,
                             label="Top candidate matches",
+                            elem_id="candidate-matches-table",
                             elem_classes=["lb-ledger-table"],
                         )
 
@@ -646,6 +650,7 @@ def build_app() -> gr.Blocks:
                             ),
                             lines=14,
                             max_lines=30,
+                            elem_id="resolution-draft",
                         )
 
                         with gr.Row():

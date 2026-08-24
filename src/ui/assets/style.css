@@ -888,3 +888,87 @@ footer,
     color: var(--lb-ink) !important;
     opacity: 1 !important;
 }
+
+/* -------------------------------------------------------------------- */
+/* Component-label and status contrast corrections                       */
+/* -------------------------------------------------------------------- */
+
+/* Prevent browser selection colors from making status text unreadable. */
+.lb-status ::selection,
+.lb-status *::selection {
+    background: var(--lb-brass-deep) !important;
+    color: #ffffff !important;
+}
+
+/* Amount-mismatch status retains readable text against its pale warning tint. */
+.lb-status.amount_mismatch,
+.lb-status.amount_mismatch h2,
+.lb-status.amount_mismatch p,
+.lb-status.amount_mismatch strong,
+.lb-status.amount_mismatch span {
+    color: var(--lb-warning-text) !important;
+}
+
+/* The candidate-table label must remain visible above the dark table header. */
+#candidate-matches-table label,
+#candidate-matches-table label span,
+#candidate-matches-table [class*="label"],
+#candidate-matches-table [class*="label"] span {
+    color: var(--lb-ink-2) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    opacity: 1 !important;
+    text-transform: uppercase !important;
+}
+
+/* Ensure the resolution-draft label and placeholder have adequate contrast. */
+#resolution-draft label,
+#resolution-draft label span,
+#resolution-draft [class*="label"],
+#resolution-draft [class*="label"] span {
+    color: var(--lb-ink-2) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    opacity: 1 !important;
+    text-transform: uppercase !important;
+}
+
+#resolution-draft textarea,
+#resolution-draft textarea::placeholder {
+    color: var(--lb-ink) !important;
+    opacity: 1 !important;
+}
+
+#resolution-draft textarea::placeholder {
+    color: var(--lb-slate) !important;
+}
+
+/* Make the upload label readable without altering upload functionality. */
+#invoice-image-upload label,
+#invoice-image-upload label span,
+#invoice-image-upload [class*="label"],
+#invoice-image-upload [class*="label"] span {
+    color: var(--lb-ink-2) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    opacity: 1 !important;
+    text-transform: uppercase !important;
+}
+
+/* Sidebar instruction retains its intended text, but has no generic label. */
+#review-instruction textarea,
+#review-instruction textarea::placeholder {
+    color: var(--lb-ink) !important;
+    opacity: 1 !important;
+}
+
+#review-instruction textarea {
+    background: var(--lb-surface) !important;
+    border: 1px solid var(--lb-hairline-strong) !important;
+}
