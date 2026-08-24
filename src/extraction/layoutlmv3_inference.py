@@ -47,7 +47,7 @@ class LayoutLMv3Extractor:
         self.device = torch.device(device)
 
         self.processor = AutoProcessor.from_pretrained(
-            self.model_dir,
+            BASE_MODEL_NAME,
             apply_ocr=False,
         )
 
