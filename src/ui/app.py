@@ -556,6 +556,7 @@ def build_app() -> gr.Blocks:
                                 3. Investigate exceptions  
                                 4. Draft and approve a response when needed
                                 """,
+                                elem_id="workflow-steps",
                                 elem_classes=["lb-workflow"],
                             )
 
@@ -668,6 +669,7 @@ def build_app() -> gr.Blocks:
                         with gr.Accordion(
                             "Technical details",
                             open=False,
+                            elem_id="technical-details",
                         ):
                             technical_extraction_json = gr.Code(
                                 label="Raw extraction output",

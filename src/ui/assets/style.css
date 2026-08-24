@@ -909,20 +909,6 @@ footer,
     color: var(--lb-warning-text) !important;
 }
 
-/* The candidate-table label must remain visible above the dark table header. */
-#candidate-matches-table label,
-#candidate-matches-table label span,
-#candidate-matches-table [class*="label"],
-#candidate-matches-table [class*="label"] span {
-    color: var(--lb-ink-2) !important;
-    font-family: var(--font-mono) !important;
-    font-size: 0.72rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.08em !important;
-    opacity: 1 !important;
-    text-transform: uppercase !important;
-}
-
 /* Ensure the resolution-draft label and placeholder have adequate contrast. */
 #resolution-draft label,
 #resolution-draft label span,
@@ -971,4 +957,54 @@ footer,
 #review-instruction textarea {
     background: var(--lb-surface) !important;
     border: 1px solid var(--lb-hairline-strong) !important;
+}
+/* -------------------------------------------------------------------- */
+/* Final component-label contrast fixes                                  */
+/* -------------------------------------------------------------------- */
+
+/* Dataframe label: "Top candidate matches". */
+#candidate-matches-table > label,
+#candidate-matches-table > label *,
+#candidate-matches-table .label-wrap,
+#candidate-matches-table .label-wrap *,
+#candidate-matches-table [data-testid="block-label"],
+#candidate-matches-table [data-testid="block-label"] * {
+    color: var(--lb-ink-2) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+}
+
+/* Sidebar workflow heading. */
+#workflow-steps,
+#workflow-steps *,
+#workflow-steps .prose,
+#workflow-steps .prose * {
+    opacity: 1 !important;
+}
+
+#workflow-steps strong,
+#workflow-steps p:first-child {
+    color: var(--lb-ink-2) !important;
+}
+
+/* Technical-details accordion heading. */
+#technical-details,
+#technical-details *,
+#technical-details .label-wrap,
+#technical-details .label-wrap *,
+#technical-details summary,
+#technical-details summary * {
+    color: var(--lb-ink-2) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+#technical-details .label-wrap,
+#technical-details summary {
+    background: var(--lb-surface) !important;
 }
