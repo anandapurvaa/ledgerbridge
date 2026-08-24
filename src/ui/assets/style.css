@@ -958,26 +958,6 @@ footer,
     background: var(--lb-surface) !important;
     border: 1px solid var(--lb-hairline-strong) !important;
 }
-/* -------------------------------------------------------------------- */
-/* Final component-label contrast fixes                                  */
-/* -------------------------------------------------------------------- */
-
-/* Dataframe label: "Top candidate matches". */
-#candidate-matches-table > label,
-#candidate-matches-table > label *,
-#candidate-matches-table .label-wrap,
-#candidate-matches-table .label-wrap *,
-#candidate-matches-table [data-testid="block-label"],
-#candidate-matches-table [data-testid="block-label"] * {
-    color: var(--lb-ink-2) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    font-family: var(--font-mono) !important;
-    font-size: 0.72rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
-}
 
 /* Sidebar workflow heading. */
 #workflow-steps,
@@ -1006,5 +986,47 @@ footer,
 
 #technical-details .label-wrap,
 #technical-details summary {
+    background: var(--lb-surface) !important;
+}
+/* -------------------------------------------------------------------- */
+/* Explicit component labels                                             */
+/* -------------------------------------------------------------------- */
+
+.lb-component-label {
+    color: var(--lb-ink-2) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.09em !important;
+    line-height: 1.3;
+    margin: 0 0 8px;
+    opacity: 1 !important;
+    text-transform: uppercase;
+}
+
+.lb-workflow-label {
+    margin-top: 4px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--lb-hairline-strong);
+}
+
+/* The workflow list retains high contrast after its heading is separated. */
+#workflow-steps,
+#workflow-steps .prose,
+#workflow-steps ol,
+#workflow-steps li {
+    color: var(--lb-ink) !important;
+    opacity: 1 !important;
+}
+
+/* Accordion itself remains a compact, clickable disclosure control. */
+#technical-details {
+    margin-bottom: 18px;
+}
+
+#technical-details .label-wrap,
+#technical-details summary,
+#technical-details button {
+    color: var(--lb-ink-2) !important;
     background: var(--lb-surface) !important;
 }
