@@ -36,12 +36,22 @@ output/
 reports/
 *.log
 
-# Large or reproducible datasets
+# Large or reproducible datasets (root folder data ignored, src/data kept)
+/data/
 data/raw/
 data/synthetic/
 data/evaluation/
 data/**/*.arrow
 data/**/*.json
+
+# Exclude heavy training checkpoints, but KEEP the final runtime model weights & configs for CI/CD
+models/**/optimizer.pt
+models/**/rng_state.pth
+models/**/scaler.pt
+models/**/scheduler.pt
+models/**/trainer_state.json
+models/**/training_args.bin
+models/**/checkpoint-*/
 
 # Build and packaging output
 build/

@@ -42,10 +42,7 @@ data/synthetic/
 data/**/*.arrow
 data/**/*.json
 
-# Keep only the runtime LoRA model.
-models/layoutlmv3_lora/
-models/layoutlmv3_lora_weighted_smoke/
-models/layoutlmv3_lora_weighted/checkpoint-*/
+# Exclude heavy training state files, but keep model weights and configs
 models/**/optimizer.pt
 models/**/rng_state.pth
 models/**/scaler.pt
