@@ -567,7 +567,7 @@ def build_app() -> gr.Blocks:
                             with gr.Group(elem_classes=["lb-subpanel"]):
                                 gr.HTML(
                                     "<div class='lb-demo-heading'>"
-                                    "Try a demo scenario</div>"
+                                    "Select a demo scenario</div>"
                                 )
 
                                 with gr.Row(
