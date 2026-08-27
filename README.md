@@ -204,6 +204,3 @@ The project keeps model and synthetic-data generation separate from runtime reco
 4. Add image-based end-to-end tests with audit writes mocked or directed to a dedicated test table.
 5. Add close/cancel/send-review state transitions before enabling any outbound communication.
 
-## License
-
-This repository currently has no declared license. Add one before public distribution.
