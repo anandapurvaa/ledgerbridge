@@ -1,7 +1,10 @@
 # src/matching/schemas.py
+from __future__ import annotations
+
+from datetime import date
 from typing import Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 class InvoiceRecord(BaseModel):
@@ -13,6 +16,15 @@ class InvoiceRecord(BaseModel):
     quantity: int
     fx_rate: float
     line_items: Any = None
+
+    @field_validator("invoice_date", mode="before")
+    @classmethod
+    def _coerce_invoice_date_to_str(cls, v: Any) -> str:
+        if isinstance(v, date):
+            return v.isoformat()
+        if isinstance(v, str):
+            return v
+        return str(v)
 
 
 class MatchCandidate(BaseModel):

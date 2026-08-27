@@ -8,6 +8,10 @@ from src.audit.reconciliation_audit_repository import (
 from src.matching.schemas import InvoiceRecord
 
 
+# Create a single shared repository instance for this process.
+_AUDIT_REPOSITORY = ReconciliationAuditRepository()
+
+
 def audit_writer_node(state: AgentState) -> dict:
     invoice = InvoiceRecord.model_validate(
         state["extracted_fields"]
@@ -32,9 +36,7 @@ def audit_writer_node(state: AgentState) -> dict:
             "invoice_id"
         )
 
-    repository = ReconciliationAuditRepository()
-
-    audit_event_id = repository.write_event(
+    audit_event_id = _AUDIT_REPOSITORY.write_event(
         invoice=invoice,
         reconciliation_status=status,
         run_id=str(uuid4()),

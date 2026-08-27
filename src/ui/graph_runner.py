@@ -1,6 +1,7 @@
 # src/ui/graph_runner.py
 from __future__ import annotations
 
+import time
 from pathlib import Path
 from typing import Any
 
@@ -20,6 +21,8 @@ def run_reconciliation_graph(
     """
     Run a complete reconciliation graph execution for one invoice image.
     """
+    t_start = time.time()
+
     graph = build_reconciliation_graph()
 
     initial_state = {
@@ -39,7 +42,21 @@ def run_reconciliation_graph(
         "audit_event_id": "",
     }
 
+    # Time the full graph execution (OCR + extraction + matching + investigation + draft + audit)
+    t_graph_start = time.time()
     result = graph.invoke(initial_state)
+    t_graph_end = time.time()
+
+    print(
+        f"[PROFILE] graph.invoke (full pipeline) took "
+        f"{t_graph_end - t_graph_start:.2f}s for {Path(invoice_image_path).name}"
+    )
+
+    # If you want to add more granular timing later, do it inside the graph nodes
+    # (extractor_node, matcher_node, investigation_node, draft_node, audit_writer_node).
+
+    t_end = time.time()
+    print(f"[PROFILE] total run_reconciliation_graph: {t_end - t_start:.2f}s")
 
     return {
         "extracted_fields": result.get(

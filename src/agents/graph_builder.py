@@ -1,3 +1,8 @@
+from __future__ import annotations
+
+import time
+from typing import Any
+
 from langgraph.graph import END, StateGraph
 
 from src.agents.graph_routes import (
@@ -5,27 +10,40 @@ from src.agents.graph_routes import (
     route_after_extractor,
 )
 from src.agents.nodes.audit_writer_node import (
-    audit_writer_node,
+    audit_writer_node as base_audit_writer_node,
 )
 from src.agents.nodes.duplicate_detection_node import (
-    duplicate_detection_node,
+    duplicate_detection_node as base_duplicate_detection_node,
 )
 from src.agents.nodes.extractor_node import (
-    extractor_node,
+    extractor_node as base_extractor_node,
 )
 from src.agents.nodes.investigator_node import (
-    investigator_node,
+    investigator_node as base_investigator_node,
 )
 from src.agents.nodes.matcher_node import (
-    matcher_node,
+    matcher_node as base_matcher_node,
 )
 from src.agents.nodes.query_ledger_node import (
-    query_ledger_node,
+    query_ledger_node as base_query_ledger_node,
 )
 from src.agents.nodes.resolution_drafter_node import (
-    resolution_drafter_node,
+    resolution_drafter_node as base_resolution_drafter_node,
 )
 from src.agents.state import AgentState
+
+
+def _timed_node(name: str, base_fn):
+    """
+    Wrap a node function to print how long it took.
+    """
+    def wrapper(state: dict[str, Any]) -> dict[str, Any]:
+        t0 = time.time()
+        result = base_fn(state)
+        t1 = time.time()
+        print(f"[NODE {name}] {t1 - t0:.2f}s")
+        return result
+    return wrapper
 
 
 def build_reconciliation_graph():
@@ -39,6 +57,21 @@ def build_reconciliation_graph():
         extracted fields, candidate ledger records, reconciliation result,
         investigation, optional dispute draft, and BigQuery audit event ID.
     """
+    # Wrap each node with timing
+    extractor_node = _timed_node("extractor", base_extractor_node)
+    query_ledger_node = _timed_node("query_ledger", base_query_ledger_node)
+    matcher_node = _timed_node("matcher", base_matcher_node)
+    duplicate_detection_node = _timed_node(
+        "duplicate_detection",
+        base_duplicate_detection_node,
+    )
+    investigator_node = _timed_node("investigator", base_investigator_node)
+    resolution_drafter_node = _timed_node(
+        "resolution_drafter",
+        base_resolution_drafter_node,
+    )
+    audit_writer_node = _timed_node("write_audit", base_audit_writer_node)
+
     workflow = StateGraph(AgentState)
 
     workflow.add_node("extractor", extractor_node)

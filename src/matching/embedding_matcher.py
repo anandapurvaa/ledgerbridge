@@ -1,13 +1,26 @@
 # src/matching/embedding_matcher.py
 from __future__ import annotations
 
+
+from functools import lru_cache
 from typing import Any
+
 
 import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
+
 from src.matching.schemas import InvoiceRecord, MatchCandidate
+
+
+
+@lru_cache(maxsize=1)
+def _get_sentence_transformer(model_name: str = "all-MiniLM-L6-v2"):
+    """
+    Load the SentenceTransformer model once per process.
+    """
+    return SentenceTransformer(model_name)
 
 
 class LedgerEmbeddingMatcher:
@@ -15,7 +28,7 @@ class LedgerEmbeddingMatcher:
         self,
         model_name: str = "all-MiniLM-L6-v2",
     ) -> None:
-        self.model = SentenceTransformer(model_name)
+        self.model = _get_sentence_transformer(model_name)
         self.index: faiss.Index | None = None
         self.ledger_records: list[InvoiceRecord] = []
 

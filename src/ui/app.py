@@ -1,14 +1,19 @@
+# src/ui/app.py
 from __future__ import annotations
 
+import asyncio
+import json
 import os
+import sys
 import random
 import html
-import json
 import tempfile
+import time
 from pathlib import Path
 from typing import Any
 
 import gradio as gr
+from mcp import ClientSession, StdioServerParameters, stdio_client
 
 from src.audit.reconciliation_audit_repository import (
     ReconciliationAuditRepository,
@@ -22,6 +27,7 @@ from src.ui.graph_runner import run_reconciliation_graph
 STYLE_PATH = Path(__file__).parent / "assets" / "style.css"
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEMO_INVOICES_DIR = PROJECT_ROOT / "data" / "demo_invoices"
+
 
 DEMO_SCENARIOS = {
     "Clean match": "matched",
@@ -41,6 +47,7 @@ CANDIDATE_HEADERS = [
     "Semantic Score",
 ]
 
+
 HISTORY_HEADERS = [
     "Timestamp (UTC)",
     "Invoice ID",
@@ -54,6 +61,7 @@ HISTORY_HEADERS = [
     "Audit Event ID",
 ]
 
+
 ROOT_CAUSE_OPTIONS = [
     "All root causes",
     "amount_mismatch",
@@ -62,6 +70,7 @@ ROOT_CAUSE_OPTIONS = [
     "unmatched",
 ]
 
+
 SEVERITY_OPTIONS = [
     "All severities",
     "low",
@@ -69,6 +78,123 @@ SEVERITY_OPTIONS = [
     "high",
 ]
 
+
+# ---------- Ledger browser MCP helper ----------
+
+async def _query_ledger_mcp_async(query: str) -> list[dict[str, Any]]:
+    server_params = StdioServerParameters(
+        command=sys.executable,
+        args=["src/mcp_servers/bigquery_user_mcp.py"],
+    )
+
+    async with stdio_client(server_params) as (read_stream, write_stream):
+        async with ClientSession(read_stream, write_stream) as session:
+            await session.initialize()
+
+            call_result = await session.call_tool(
+                "query_ledger",
+                arguments={"query": query},
+            )
+
+            if getattr(call_result, "isError", False):
+                error_text = "\n".join(
+                    getattr(content, "text", str(content))
+                    for content in call_result.content
+                )
+                raise RuntimeError(f"MCP query_ledger error: {error_text}")
+
+            for content in call_result.content:
+                if not hasattr(content, "text"):
+                    continue
+
+                raw_text = content.text.strip()
+
+                if not raw_text:
+                    raise RuntimeError(
+                        "MCP query_ledger returned an empty text response."
+                    )
+
+                try:
+                    payload = json.loads(raw_text)
+                except json.JSONDecodeError as exc:
+                    raise RuntimeError(
+                        "MCP query_ledger returned non-JSON content:\n"
+                        f"{raw_text}"
+                    ) from exc
+
+                if not payload.get("ok", False):
+                    raise RuntimeError(
+                        "BigQuery MCP server returned an error:\n"
+                        f"{payload.get('error', 'Unknown server error')}"
+                    )
+
+                return payload.get("rows", [])
+
+    raise RuntimeError(
+        "MCP query_ledger returned no text content blocks."
+    )
+
+
+def query_ledger_mcp(query: str) -> list[dict[str, Any]]:
+    return asyncio.run(_query_ledger_mcp_async(query))
+
+
+def run_ledger_query_ui(query: str) -> tuple[list[list[Any]], str]:
+    """
+    Run a user-provided SELECT query via the MCP server and return
+    (rows_for_dataframe, status_message_html).
+    """
+    q = (query or "").strip()
+
+    if not q:
+        return [], (
+            "<div class='lb-empty'>"
+            "Enter a SQL query (must be a SELECT statement)."
+            "</div>"
+        )
+
+    if not q.upper().lstrip().startswith("SELECT"):
+        return [], (
+            "<div class='lb-status error'>"
+            "<h2>Invalid query</h2>"
+            "<p>Only read-only SELECT queries are permitted.</p>"
+            "</div>"
+        )
+
+    try:
+        rows = query_ledger_mcp(q)
+    except Exception as e:
+        return [], (
+            "<div class='lb-status error'>"
+            "<h2>Query failed</h2>"
+            f"<p>{safe_html(str(e))}</p>"
+            "</div>"
+        )
+
+    if not rows:
+        return [], (
+            "<div class='lb-audit'>"
+            "Query executed successfully, but no rows were returned."
+            "</div>"
+        )
+
+    # Build a dataframe-friendly list of lists
+    headers = list(rows[0].keys())
+    data_rows = [
+        [row.get(h) for h in headers]
+        for row in rows
+    ]
+
+    message = (
+        "<div class='lb-audit'>"
+        f"Query executed successfully. Showing <strong>{len(data_rows)}</strong> row(s)."
+        "</div>"
+    )
+
+    return data_rows, message
+
+
+# ---------- Existing helpers ----------
 
 def save_draft_for_download(draft: str) -> str:
     output_path = Path(tempfile.gettempdir()) / (
@@ -325,6 +451,7 @@ def build_uploaded_file_html(
         "</div>"
     )
 
+
 def load_demo_invoice(
     scenario_label: str,
 ) -> tuple[str | None, str]:
@@ -365,7 +492,7 @@ def load_demo_invoice(
             "</div>"
         ),
     )
-import time
+
 
 _DEMO_CACHE: dict[str, dict[str, Any]] = {}
 
@@ -450,6 +577,7 @@ def reconcile_invoice_ui(
         status,
     )
 
+
 def approve_draft_ui(
     draft: str,
     audit_event_id: str,
@@ -479,6 +607,7 @@ def approve_draft_ui(
         f"<code>{safe_html(approval_event_id)}</code></p>"
         "</div>"
     )
+
 
 def load_review_history(
     root_cause: str,
@@ -598,7 +727,7 @@ def build_app() -> gr.Blocks:
                             with gr.Group(elem_classes=["lb-subpanel"]):
                                 gr.HTML(
                                     "<div class='lb-demo-heading'>"
-                                    "Select a demo scenario</div>"  #test
+                                    "Select a demo scenario</div>"
                                 )
 
                                 with gr.Row(
@@ -907,12 +1036,57 @@ def build_app() -> gr.Blocks:
                     outputs=[history_table, history_message_html],
                 )
 
+            # ---------- New: Ledger browser tab ----------
+            with gr.Tab("Ledger browser"):
+                gr.Markdown("## Ledger browser")
+                gr.Markdown(
+                    "Run ad‑hoc read‑only SELECT queries against the "
+                    "LedgerBridge BigQuery ledger via the MCP server."
+                )
+
+                ledger_query_textbox = gr.Textbox(
+                    label="SQL query (SELECT only)",
+                    placeholder=(
+                        "e.g. SELECT invoice_id, vendor, amount "
+                        "FROM `cloudprojects-506123.ledgerbridge.invoices_clustered` "
+                        "WHERE vendor = 'Acme Corp' LIMIT 50"
+                    ),
+                    lines=4,
+                )
+
+                run_query_button = gr.Button(
+                    "Run query",
+                    variant="primary",
+                )
+
+                ledger_query_message_html = gr.HTML(
+                    value=(
+                        "<div class='lb-empty'>"
+                        "Enter a query and select Run query."
+                        "</div>"
+                    )
+                )
+
+                ledger_query_table = gr.Dataframe(
+                    headers=["col_1", "col_2", "col_3"],
+                    datatype=["str", "str", "str"],
+                    value=[],
+                    interactive=False,
+                    wrap=True,
+                    label="Query results",
+                    elem_classes=["lb-ledger-table"],
+                )
+
+                run_query_button.click(
+                    fn=run_ledger_query_ui,
+                    inputs=[ledger_query_textbox],
+                    outputs=[ledger_query_table, ledger_query_message_html],
+                )
+
     return app
 
 
 if __name__ == "__main__":
-    import os
-
     app = build_app()
 
     app.launch(

@@ -5,7 +5,9 @@
    oxblood for what's in the red, warm ivory paper underneath it all.
    ========================================================================= */
 
+
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
 
 :root {
     /* -- Ink & paper -- */
@@ -19,6 +21,7 @@
     --lb-slate: #665f52;
     --lb-slate-soft: #948c78;
 
+
     /* -- Brand accents, drawn from ledger convention -- */
     --lb-emerald: #0f6b52;      /* "in the black" */
     --lb-emerald-dark: #0a5340;
@@ -26,27 +29,33 @@
     --lb-brass-deep: #7d5a12;
     --lb-oxblood: #7c2020;
 
+
     /* -- Status tints -- */
     --lb-success-bg: #e8f4ee;
     --lb-success-text: #0f6b52;
     --lb-success-border: #bfe0d0;
 
+
     --lb-warning-bg: #faf0d9;
     --lb-warning-text: #7d5a12;
     --lb-warning-border: #ecd6a0;
 
+
     --lb-danger-bg: #fbeaea;
     --lb-danger-text: #7c2020;
     --lb-danger-border: #ecc4c4;
+
 
     /* -- Type -- */
     --font-display: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
 
+
     --lb-radius: 10px;
     --lb-radius-sm: 7px;
 }
+
 
 /* -------------------------------------------------------------------- */
 /* Gradio theme-variable bridge                                          */
@@ -72,6 +81,7 @@
     --link-text-color-active: var(--lb-emerald-dark);
     --link-text-color-visited: var(--lb-emerald);
 
+
     --block-background-fill: var(--lb-surface);
     --block-border-color: var(--lb-hairline);
     --block-border-width: 1px;
@@ -82,17 +92,21 @@
     --block-title-background-fill: transparent;
     --block-title-text-color: var(--lb-ink);
 
+
     --panel-background-fill: var(--lb-surface-2);
     --panel-border-color: var(--lb-hairline);
+
 
     --input-background-fill: var(--lb-surface);
     --input-border-color: var(--lb-hairline-strong);
     --input-placeholder-color: var(--lb-slate-soft);
 
+
     --table-border-color: var(--lb-hairline);
     --table-even-background-fill: var(--lb-surface-2);
     --table-odd-background-fill: var(--lb-surface);
     --table-row-focus: var(--lb-success-bg);
+
 
     --neutral-50: var(--lb-surface-2);
     --neutral-100: var(--lb-surface-2);
@@ -102,9 +116,11 @@
     --neutral-950: var(--lb-ink);
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Base                                                                  */
 /* -------------------------------------------------------------------- */
+
 
 .gradio-container {
     max-width: 1480px !important;
@@ -114,6 +130,7 @@
     font-family: var(--font-body) !important;
     color: var(--lb-ink);
 }
+
 
 .gradio-container,
 .gradio-container p,
@@ -125,12 +142,14 @@
     font-family: var(--font-body);
 }
 
+
 .gradio-container h1,
 .gradio-container h2,
 .gradio-container h3,
 .gradio-container h4 {
     font-family: var(--font-display);
 }
+
 
 @media (prefers-reduced-motion: reduce) {
     .gradio-container * {
@@ -139,10 +158,12 @@
     }
 }
 
+
 .gradio-container :focus-visible {
     outline: 2px solid var(--lb-emerald) !important;
     outline-offset: 2px;
 }
+
 
 /* Belt-and-suspenders: the Settings menu exposes a Light/Dark/System
    switcher that overwrites this stylesheet's colors at runtime. It is
@@ -154,9 +175,11 @@ footer,
     display: none !important;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Hero / letterhead                                                     */
 /* -------------------------------------------------------------------- */
+
 
 .lb-hero {
     position: relative;
@@ -177,6 +200,7 @@ footer,
     overflow: hidden;
 }
 
+
 .lb-hero::after {
     content: "";
     position: absolute;
@@ -185,10 +209,12 @@ footer,
     background: linear-gradient(90deg, var(--lb-brass) 0%, rgba(165, 121, 31, 0) 60%);
 }
 
+
 .lb-hero h1,
 .lb-hero p {
     color: #ffffff !important;
 }
+
 
 .lb-hero-kicker {
     display: inline-block;
@@ -203,12 +229,14 @@ footer,
     margin-bottom: 14px;
 }
 
+
 .lb-hero h1 {
     margin: 0 0 8px;
     font-size: 2.1rem;
     font-weight: 600;
     letter-spacing: -0.01em;
 }
+
 
 .lb-hero p {
     margin: 0;
@@ -218,9 +246,11 @@ footer,
     opacity: 0.82;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Cards                                                                  */
 /* -------------------------------------------------------------------- */
+
 
 .lb-card {
     background: var(--lb-surface);
@@ -229,6 +259,7 @@ footer,
     padding: 22px;
     box-shadow: 0 1px 3px rgba(16, 26, 46, 0.05);
 }
+
 
 .lb-card h3 {
     color: var(--lb-ink) !important;
@@ -240,15 +271,18 @@ footer,
     line-height: 1.3;
 }
 
+
 .lb-card h3 + p,
 .lb-card > p {
     color: var(--lb-slate);
 }
 
+
 /* Sidebar "start a reconciliation" heading rendered via gr.Markdown */
 .lb-card .prose h3 {
     margin-top: 0;
 }
+
 
 /* ---------------------------------------------------------------
    Neutralize Gradio's default block chrome inside the sidebar card.
@@ -273,11 +307,13 @@ footer,
     row-gap: 18px;
 }
 
+
 .lb-card .block {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
 }
+
 
 /* Eyebrow-style field labels ("Invoice image", "Review instruction") */
 .lb-card label,
@@ -286,6 +322,7 @@ footer,
     background: transparent !important;
     border: none !important;
 }
+
 
 .lb-card label span,
 .lb-card [class*="label-wrap"] span,
@@ -299,15 +336,18 @@ footer,
     opacity: 1 !important;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Sidebar heading strip                                                  */
 /* -------------------------------------------------------------------- */
+
 
 .lb-card .prose:has(h3) {
     padding-bottom: 4px;
     border-bottom: 1px solid var(--lb-hairline);
     margin-bottom: 4px;
 }
+
 
 /* -------------------------------------------------------------------- */
 /* Sidebar sub-panels                                                    */
@@ -318,6 +358,7 @@ footer,
    everything floating" sidebar look. Specificity is bumped above the
    ".lb-card .block" reset above so the tint actually shows. */
 
+
 .lb-card .block.lb-subpanel,
 .lb-card .lb-subpanel {
     background: var(--lb-surface-2) !important;
@@ -327,11 +368,13 @@ footer,
     box-shadow: none !important;
 }
 
+
 .lb-card .lb-subpanel .form,
 .lb-card .lb-subpanel {
     row-gap: 10px !important;
     gap: 10px !important;
 }
+
 
 /* File upload dropzone reads as a distinct white "slot" inside the
    tinted sub-panel rather than blending into it. */
@@ -340,6 +383,7 @@ footer,
 .lb-card .lb-subpanel [class*="upload-container"] {
     background: var(--lb-surface) !important;
 }
+
 
 .lb-component-label {
     color: var(--lb-ink-2) !important;
@@ -353,9 +397,11 @@ footer,
     text-transform: uppercase;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Demo scenario loader                                                  */
 /* -------------------------------------------------------------------- */
+
 
 .lb-demo-heading {
     color: var(--lb-ink-2) !important;
@@ -367,16 +413,19 @@ footer,
     text-transform: uppercase;
 }
 
+
 .lb-demo-row {
     align-items: center !important;
     gap: 10px !important;
 }
+
 
 #demo-scenario {
     display: flex;
     align-items: center;
     min-width: 0;
 }
+
 
 #demo-scenario input,
 #demo-scenario button,
@@ -389,11 +438,13 @@ footer,
     border-radius: var(--lb-radius-sm) !important;
 }
 
+
 #load-demo-invoice {
     min-height: 42px;
     white-space: nowrap;
     flex-shrink: 0;
 }
+
 
 /* This note used to carry a negative top margin intended to tuck it
    under the row above; instead it pulled the text up on top of the
@@ -407,14 +458,17 @@ footer,
     margin: 2px 0 0;
 }
 
+
 .lb-demo-selected {
     background: var(--lb-success-bg) !important;
     border-color: var(--lb-success-border) !important;
 }
 
+
 /* -------------------------------------------------------------------- */
-/* Upload dropzone                                                        */
+/* Upload dropzone                                                       */
 /* -------------------------------------------------------------------- */
+
 
 .lb-card [data-testid="file-upload"],
 .lb-card .upload-box,
@@ -424,17 +478,20 @@ footer,
     transition: border-color 0.15s ease, background 0.15s ease;
 }
 
+
 .lb-card [data-testid="file-upload"]:hover,
 .lb-card .upload-box:hover {
     border-color: var(--lb-emerald) !important;
     background: var(--lb-success-bg) !important;
 }
 
+
 .lb-card [data-testid="file-upload"] svg,
 .lb-card .upload-box svg {
     color: var(--lb-brass-deep) !important;
     opacity: 1 !important;
 }
+
 
 .lb-card [data-testid="file-upload"] *,
 .lb-card .upload-box * {
@@ -443,9 +500,11 @@ footer,
     opacity: 1 !important;
 }
 
+
 .lb-card svg:not([data-testid="file-upload"] svg):not(.upload-box svg) {
     color: var(--lb-slate-soft);
 }
+
 
 /* Uploaded-file name chip */
 .lb-upload-name {
@@ -461,6 +520,7 @@ footer,
     padding: 10px 12px;
 }
 
+
 .lb-upload-label {
     color: var(--lb-slate) !important;
     font-family: var(--font-mono);
@@ -469,6 +529,7 @@ footer,
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
+
 
 .lb-upload-value {
     color: var(--lb-ink) !important;
@@ -480,14 +541,17 @@ footer,
     width: 100%;
 }
 
+
 .lb-upload-empty {
     color: var(--lb-slate) !important;
     font-style: italic;
 }
 
+
 /* -------------------------------------------------------------------- */
-/* Section dividers                                                       */
+/* Section dividers                                                      */
 /* -------------------------------------------------------------------- */
+
 
 .lb-section-title {
     display: flex;
@@ -502,6 +566,7 @@ footer,
     margin: 30px 0 14px;
 }
 
+
 .lb-section-title::before {
     content: "";
     flex-shrink: 0;
@@ -511,6 +576,7 @@ footer,
     border-radius: 1px;
 }
 
+
 .lb-section-title::after {
     content: "";
     flex: 1;
@@ -518,9 +584,11 @@ footer,
     background: var(--lb-hairline-strong);
 }
 
+
 /* -------------------------------------------------------------------- */
-/* Workflow steps (sidebar)                                               */
+/* Workflow steps (sidebar)                                              */
 /* -------------------------------------------------------------------- */
+
 
 .lb-workflow {
     margin-top: 4px;
@@ -528,9 +596,11 @@ footer,
     border-top: 1px dashed var(--lb-hairline-strong);
 }
 
+
 .lb-workflow .prose {
     margin: 0;
 }
+
 
 .lb-workflow p {
     font-family: var(--font-mono);
@@ -542,12 +612,14 @@ footer,
     margin: 0 0 10px;
 }
 
+
 .lb-workflow ol {
     list-style: none;
     counter-reset: lb-step;
     margin: 0;
     padding: 0;
 }
+
 
 .lb-workflow li {
     counter-increment: lb-step;
@@ -558,6 +630,7 @@ footer,
     line-height: 1.4;
     color: var(--lb-ink) !important;
 }
+
 
 .lb-workflow li::before {
     content: counter(lb-step);
@@ -578,6 +651,7 @@ footer,
     background: #fbf3de;
 }
 
+
 .lb-workflow li::after {
     content: "";
     position: absolute;
@@ -588,13 +662,16 @@ footer,
     background: var(--lb-hairline-strong);
 }
 
+
 .lb-workflow li:last-child::after {
     display: none;
 }
 
+
 /* -------------------------------------------------------------------- */
-/* Status stamp                                                           */
+/* Status stamp                                                          */
 /* -------------------------------------------------------------------- */
+
 
 .lb-status {
     border: 1px solid transparent;
@@ -603,12 +680,14 @@ footer,
     padding: 20px 22px;
 }
 
+
 .lb-status h2,
 .lb-status p,
 .lb-status strong,
 .lb-status code {
     color: inherit !important;
 }
+
 
 .lb-status-head {
     display: flex;
@@ -618,6 +697,7 @@ footer,
     margin-bottom: 8px;
 }
 
+
 .lb-status h2 {
     margin: 0;
     font-size: 1.15rem;
@@ -625,6 +705,7 @@ footer,
     display: flex;
     align-items: center;
 }
+
 
 .lb-status h2::before {
     content: "";
@@ -637,12 +718,14 @@ footer,
     flex-shrink: 0;
 }
 
+
 .lb-status-confidence {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     flex-shrink: 0;
 }
+
 
 .lb-status-confidence-label {
     font-family: var(--font-mono);
@@ -653,6 +736,7 @@ footer,
     opacity: 0.72;
 }
 
+
 .lb-status-confidence-value {
     font-family: var(--font-mono);
     font-size: 1.3rem;
@@ -660,17 +744,20 @@ footer,
     font-variant-numeric: tabular-nums;
 }
 
+
 .lb-status p {
     margin: 4px 0 0;
     font-size: 0.9rem;
     line-height: 1.5;
 }
 
+
 .lb-status.matched {
     background: var(--lb-success-bg) !important;
     border-color: var(--lb-success-border);
     color: var(--lb-success-text) !important;
 }
+
 
 .lb-status.amount_mismatch,
 .lb-status.duplicate_charge,
@@ -681,6 +768,7 @@ footer,
     color: var(--lb-warning-text) !important;
 }
 
+
 .lb-status.amount_mismatch,
 .lb-status.amount_mismatch h2,
 .lb-status.amount_mismatch p,
@@ -689,6 +777,7 @@ footer,
     color: var(--lb-warning-text) !important;
 }
 
+
 .lb-status.error,
 .lb-status.unknown {
     background: var(--lb-danger-bg) !important;
@@ -696,15 +785,18 @@ footer,
     color: var(--lb-danger-text) !important;
 }
 
+
 .lb-status ::selection,
 .lb-status *::selection {
     background: var(--lb-brass-deep) !important;
     color: #ffffff !important;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Audit record                                                          */
 /* -------------------------------------------------------------------- */
+
 
 .lb-audit {
     display: flex;
@@ -719,15 +811,18 @@ footer,
     line-height: 1.5;
 }
 
+
 .lb-audit,
 .lb-audit strong {
     color: var(--lb-slate) !important;
 }
 
+
 .lb-audit strong {
     color: var(--lb-ink) !important;
     font-weight: 600;
 }
+
 
 .lb-audit code {
     font-family: var(--font-mono) !important;
@@ -739,15 +834,18 @@ footer,
     font-size: 0.82rem;
 }
 
+
 /* -------------------------------------------------------------------- */
-/* Field grid                                                             */
+/* Field grid                                                            */
 /* -------------------------------------------------------------------- */
+
 
 .lb-field-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
 }
+
 
 .lb-field {
     background: var(--lb-surface-2);
@@ -757,9 +855,11 @@ footer,
     transition: border-color 0.15s ease;
 }
 
+
 .lb-field:hover {
     border-color: var(--lb-hairline-strong);
 }
+
 
 .lb-field-label {
     color: var(--lb-slate) !important;
@@ -772,6 +872,7 @@ footer,
     text-transform: uppercase;
 }
 
+
 .lb-field-value {
     color: var(--lb-ink) !important;
     font-family: var(--font-body);
@@ -780,15 +881,18 @@ footer,
     overflow-wrap: anywhere;
 }
 
+
 .lb-field-value.lb-mono {
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
     letter-spacing: -0.01em;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Investigation / analyst assessment                                    */
 /* -------------------------------------------------------------------- */
+
 
 .lb-investigation {
     background: var(--lb-surface-2) !important;
@@ -799,17 +903,20 @@ footer,
     padding: 18px 20px;
 }
 
+
 .lb-investigation h4,
 .lb-investigation p,
 .lb-investigation strong {
     color: var(--lb-ink) !important;
 }
 
+
 .lb-investigation h4 {
     font-size: 0.98rem;
     font-weight: 600;
     margin: 0 0 12px;
 }
+
 
 .lb-investigation p {
     margin: 8px 0;
@@ -818,14 +925,17 @@ footer,
     color: var(--lb-slate) !important;
 }
 
+
 .lb-investigation p strong {
     color: var(--lb-ink) !important;
     font-weight: 600;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Empty state                                                           */
 /* -------------------------------------------------------------------- */
+
 
 .lb-empty {
     background: var(--lb-surface-2) !important;
@@ -839,14 +949,17 @@ footer,
     text-align: center;
 }
 
+
 .lb-empty strong {
     color: var(--lb-ink) !important;
     font-style: normal;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Ledger tables (candidate matches + review history)                    */
 /* -------------------------------------------------------------------- */
+
 
 .lb-ledger-table {
     border: 1px solid var(--lb-hairline) !important;
@@ -855,9 +968,11 @@ footer,
     box-shadow: 0 1px 2px rgba(16, 26, 46, 0.04);
 }
 
+
 .lb-ledger-table table {
     border-collapse: collapse !important;
 }
+
 
 .lb-ledger-table thead th {
     background: var(--lb-ink) !important;
@@ -870,6 +985,7 @@ footer,
     border-color: var(--lb-ink-2) !important;
 }
 
+
 .lb-ledger-table tbody td {
     font-family: var(--font-mono) !important;
     font-size: 0.84rem !important;
@@ -878,13 +994,16 @@ footer,
     border-color: var(--lb-hairline) !important;
 }
 
+
 .lb-ledger-table tbody tr:nth-child(even) td {
     background: var(--lb-surface-2) !important;
 }
 
+
 .lb-ledger-table tbody tr:hover td {
     background: var(--lb-success-bg) !important;
 }
+
 
 /* The "Top candidate matches" / "Reconciliation review history" labels
    sit above the table, OUTSIDE the sidebar card, so none of the
@@ -910,6 +1029,7 @@ footer,
     margin: 0 0 10px !important;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Standalone textbox label — "Editable vendor communication"            */
 /* -------------------------------------------------------------------- */
@@ -918,6 +1038,7 @@ footer,
    its own explicit background behind the label text, not just a text
    color. Previously only the color was set, leaving dark text sitting
    on Gradio's default dark label chip. */
+
 
 #resolution-draft label,
 #resolution-draft [class*="label-wrap"],
@@ -935,24 +1056,29 @@ footer,
     padding: 4px 8px !important;
 }
 
+
 #resolution-draft textarea,
 #resolution-draft textarea::placeholder {
     color: var(--lb-ink) !important;
     opacity: 1 !important;
 }
 
+
 #resolution-draft textarea::placeholder {
     color: var(--lb-slate) !important;
 }
+
 
 #resolution-draft textarea {
     background: var(--lb-surface) !important;
     border: 1px solid var(--lb-hairline-strong) !important;
 }
 
+
 /* -------------------------------------------------------------------- */
-/* Buttons                                                                */
+/* Buttons                                                               */
 /* -------------------------------------------------------------------- */
+
 
 .gradio-container button.primary,
 .gradio-container button.lg.primary {
@@ -965,10 +1091,12 @@ footer,
     box-shadow: 0 1px 2px rgba(15, 107, 82, 0.2);
 }
 
+
 .gradio-container button.primary:hover {
     background: var(--lb-emerald-dark) !important;
     border-color: var(--lb-emerald-dark) !important;
 }
+
 
 .gradio-container button.secondary {
     background: var(--lb-surface) !important;
@@ -978,10 +1106,12 @@ footer,
     font-weight: 600 !important;
 }
 
+
 .gradio-container button.secondary:hover {
     background: var(--lb-surface-2) !important;
     border-color: var(--lb-ink) !important;
 }
+
 
 #run-reconciliation {
     min-height: 48px;
@@ -990,9 +1120,11 @@ footer,
     margin-top: 6px;
 }
 
+
 /* -------------------------------------------------------------------- */
-/* Inputs                                                                 */
+/* Inputs                                                                */
 /* -------------------------------------------------------------------- */
+
 
 .gradio-container input[type="text"],
 .gradio-container textarea,
@@ -1005,17 +1137,20 @@ footer,
     font-family: var(--font-body) !important;
 }
 
+
 .gradio-container input[type="text"]:focus,
 .gradio-container textarea:focus {
     border-color: var(--lb-emerald) !important;
     box-shadow: 0 0 0 3px rgba(15, 107, 82, 0.12) !important;
 }
 
+
 .gradio-container label span {
     color: var(--lb-slate) !important;
     font-weight: 600 !important;
     font-size: 0.82rem !important;
 }
+
 
 /* File upload dropzone */
 .gradio-container .upload-box,
@@ -1025,6 +1160,7 @@ footer,
     background: var(--lb-surface-2) !important;
 }
 
+
 .lb-card textarea,
 .lb-card textarea::placeholder,
 .lb-card input,
@@ -1033,17 +1169,20 @@ footer,
     opacity: 1 !important;
 }
 
+
 .lb-card textarea {
     background: var(--lb-surface) !important;
     border-color: var(--lb-hairline-strong) !important;
     caret-color: var(--lb-ink) !important;
 }
 
+
 .lb-card [data-testid="textbox"] textarea,
 .lb-card [data-testid="textbox"] textarea * {
     color: var(--lb-ink) !important;
     opacity: 1 !important;
 }
+
 
 #invoice-image-upload label,
 #invoice-image-upload label span,
@@ -1058,6 +1197,7 @@ footer,
     text-transform: uppercase !important;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Accordion + code panel ("Technical details")                          */
 /* -------------------------------------------------------------------- */
@@ -1069,12 +1209,14 @@ footer,
    invisible against each other. Overriding the CodeMirror classes
    directly is the only reliable fix for this component. */
 
+
 #technical-details {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     margin-bottom: 4px;
 }
+
 
 #technical-details > .label-wrap,
 #technical-details summary,
@@ -1096,16 +1238,19 @@ footer,
     opacity: 1 !important;
 }
 
+
 #technical-details svg {
     color: var(--lb-brass-deep) !important;
     opacity: 1 !important;
 }
+
 
 #technical-details[open] > .label-wrap {
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
     border-bottom-color: transparent !important;
 }
+
 
 #technical-details > .wrap,
 #technical-details [data-testid="block"] {
@@ -1116,6 +1261,7 @@ footer,
     padding: 4px !important;
 }
 
+
 #technical-details .cm-editor,
 #technical-details .cm-editor.cm-focused,
 #technical-details .cm-scroller {
@@ -1123,25 +1269,30 @@ footer,
     color: var(--lb-ink) !important;
 }
 
+
 #technical-details .cm-gutters {
     background: var(--lb-surface-2) !important;
     color: var(--lb-slate-soft) !important;
     border-right: 1px solid var(--lb-hairline) !important;
 }
 
+
 #technical-details .cm-content,
 #technical-details .cm-line {
     color: var(--lb-ink) !important;
 }
+
 
 #technical-details .cm-activeLine,
 #technical-details .cm-activeLineGutter {
     background: var(--lb-surface-2) !important;
 }
 
+
 #technical-details .cm-selectionBackground {
     background: rgba(15, 107, 82, 0.15) !important;
 }
+
 
 /* JSON syntax token colors, kept legible on the light panel */
 #technical-details .cm-string { color: var(--lb-emerald-dark) !important; }
@@ -1154,15 +1305,18 @@ footer,
 #technical-details .cm-atom,
 #technical-details .cm-bool { color: var(--lb-oxblood) !important; }
 
+
 #technical-details [class*="copy"],
 #technical-details button:not(.label-wrap) {
     color: var(--lb-slate) !important;
     background: var(--lb-surface) !important;
 }
 
+
 /* -------------------------------------------------------------------- */
 /* Tab and sidebar contrast fixes                                        */
 /* -------------------------------------------------------------------- */
+
 
 .gradio-container [role="tab"] {
     color: var(--lb-slate) !important;
@@ -1171,15 +1325,18 @@ footer,
     opacity: 1 !important;
 }
 
+
 .gradio-container [role="tab"]:hover,
 .gradio-container [role="tab"][aria-selected="true"] {
     color: var(--lb-brass-deep) !important;
     opacity: 1 !important;
 }
 
+
 .gradio-container [role="tab"][aria-selected="true"] {
     border-color: var(--lb-brass) !important;
 }
+
 
 .lb-card label span,
 .lb-card [class*="label-wrap"] span,
@@ -1188,16 +1345,19 @@ footer,
     opacity: 1 !important;
 }
 
+
 #review-instruction textarea,
 #review-instruction textarea::placeholder {
     color: var(--lb-ink) !important;
     opacity: 1 !important;
 }
 
+
 #review-instruction textarea {
     background: var(--lb-surface) !important;
     border: 1px solid var(--lb-hairline-strong) !important;
 }
+
 
 #workflow-steps,
 #workflow-steps *,
@@ -1206,6 +1366,7 @@ footer,
     opacity: 1 !important;
 }
 
+
 #workflow-steps,
 #workflow-steps .prose,
 #workflow-steps ol,
@@ -1213,47 +1374,102 @@ footer,
     color: var(--lb-ink) !important;
 }
 
+
 #workflow-steps strong,
 #workflow-steps p:first-child {
     color: var(--lb-ink-2) !important;
 }
 
+
 /* -------------------------------------------------------------------- */
-/* Demo scenario loader input styling                                    */
+/* Demo scenario loader input styling                                   */
 /* -------------------------------------------------------------------- */
+
 
 #demo-scenario {
     min-width: 0;
 }
 
+
 /* -------------------------------------------------------------------- */
-/* Responsive                                                             */
+/* Ledger browser tab                                                    */
 /* -------------------------------------------------------------------- */
+
+
+/* Query textbox label */
+#ledger-query-textbox label,
+#ledger-query-textbox [class*="label-wrap"],
+#ledger-query-textbox [class*="label"] {
+    background: var(--lb-surface) !important;
+    color: var(--lb-ink-2) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    opacity: 1 !important;
+    text-transform: uppercase !important;
+    border: 1px solid var(--lb-hairline) !important;
+    border-radius: var(--lb-radius-sm) !important;
+    padding: 4px 8px !important;
+}
+
+
+#ledger-query-textbox textarea,
+#ledger-query-textbox textarea::placeholder {
+    color: var(--lb-ink) !important;
+    opacity: 1 !important;
+}
+
+
+#ledger-query-textbox textarea::placeholder {
+    color: var(--lb-slate) !important;
+}
+
+
+#ledger-query-textbox textarea {
+    background: var(--lb-surface) !important;
+    border: 1px solid var(--lb-hairline-strong) !important;
+}
+
+
+/* Ledger browser results table uses the same lb-ledger-table styles */
+
+
+/* -------------------------------------------------------------------- */
+/* Responsive                                                            */
+/* -------------------------------------------------------------------- */
+
 
 @media (max-width: 850px) {
     .gradio-container {
         padding: 16px !important;
     }
 
+
     .lb-hero {
         padding: 26px 22px 22px;
     }
+
 
     .lb-hero h1 {
         font-size: 1.7rem;
     }
 
+
     .lb-field-grid {
         grid-template-columns: 1fr;
     }
+
 
     .lb-status-head {
         flex-direction: column;
     }
 
+
     .lb-status-confidence {
         align-items: flex-start;
     }
+
 
     .lb-demo-row {
         flex-wrap: wrap;

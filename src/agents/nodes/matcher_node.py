@@ -1,6 +1,9 @@
+# src/agents/nodes/matcher_node.py
 from __future__ import annotations
 
+
 from typing import Any
+
 
 from src.agents.state import AgentState
 from src.evaluation.evaluate_true_end_to_end import (
@@ -17,6 +20,7 @@ from src.matching.reconciliation_rules import (
     classify_reconciliation,
 )
 from src.matching.schemas import InvoiceRecord
+
 
 
 def matcher_node(state: AgentState) -> dict:
@@ -39,6 +43,9 @@ def matcher_node(state: AgentState) -> dict:
         "ledger_rows",
         [],
     )
+
+    # Limit ledger size before building FAISS to reduce latency.
+    ledger_rows = ledger_rows[:60]
 
     if not extracted_fields:
         return {
@@ -87,9 +94,10 @@ def matcher_node(state: AgentState) -> dict:
     matcher = LedgerEmbeddingMatcher()
     matcher.build_index(ledger_rows)
 
+    # Reduced from top_k=5 to top_k=3 to cut latency.
     candidates = matcher.search(
         invoice=invoice,
-        top_k=5,
+        top_k=3,
     )
 
     candidates = prioritize_identity_candidate(
