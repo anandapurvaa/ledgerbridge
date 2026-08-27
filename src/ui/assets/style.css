@@ -1,43 +1,43 @@
 /* =========================================================================
    LedgerBridge — Reconciliation Console
    Design language: the general ledger, reimagined as software.
-   Ink for the record, brass for what needs attention, oxblood for what's
-   in the red. Ruled paper, tabular figures, hairline precision.
+   Midnight ink for the record, antique gold for what needs attention,
+   oxblood for what's in the red, warm ivory paper underneath it all.
    ========================================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
 
 :root {
     /* -- Ink & paper -- */
-    --lb-ink: #101b2d;
-    --lb-ink-2: #1c2f4a;
-    --lb-paper: #eef1f5;
-    --lb-surface: #ffffff;
-    --lb-surface-2: #f7f8fb;
-    --lb-hairline: #d9dfe8;
-    --lb-hairline-strong: #c3cbd8;
-    --lb-slate: #57657a;
-    --lb-slate-soft: #7c8aa0;
+    --lb-ink: #101a2e;
+    --lb-ink-2: #1d3054;
+    --lb-paper: #f1ede1;
+    --lb-surface: #fffefb;
+    --lb-surface-2: #f6f1e4;
+    --lb-hairline: #e2dac2;
+    --lb-hairline-strong: #cdc0a0;
+    --lb-slate: #665f52;
+    --lb-slate-soft: #948c78;
 
     /* -- Brand accents, drawn from ledger convention -- */
-    --lb-emerald: #0e6e55;      /* "in the black" */
-    --lb-emerald-dark: #0a5643;
-    --lb-brass: #9c7a2e;        /* attention / official record */
-    --lb-brass-deep: #7a5a14;
-    --lb-oxblood: #7a1f1f;      /* "in the red" */
+    --lb-emerald: #0f6b52;      /* "in the black" */
+    --lb-emerald-dark: #0a5340;
+    --lb-brass: #a5791f;        /* attention / official record */
+    --lb-brass-deep: #7d5a12;
+    --lb-oxblood: #7c2020;
 
     /* -- Status tints -- */
-    --lb-success-bg: #e7f5ef;
-    --lb-success-text: #0e6e55;
-    --lb-success-border: #bfe0d2;
+    --lb-success-bg: #e8f4ee;
+    --lb-success-text: #0f6b52;
+    --lb-success-border: #bfe0d0;
 
-    --lb-warning-bg: #fbf1dc;
-    --lb-warning-text: #7a5a14;
-    --lb-warning-border: #ecd8a3;
+    --lb-warning-bg: #faf0d9;
+    --lb-warning-text: #7d5a12;
+    --lb-warning-border: #ecd6a0;
 
     --lb-danger-bg: #fbeaea;
-    --lb-danger-text: #7a1f1f;
-    --lb-danger-border: #ecc2c2;
+    --lb-danger-text: #7c2020;
+    --lb-danger-border: #ecc4c4;
 
     /* -- Type -- */
     --font-display: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
@@ -46,6 +46,60 @@
 
     --lb-radius: 10px;
     --lb-radius-sm: 7px;
+}
+
+/* -------------------------------------------------------------------- */
+/* Gradio theme-variable bridge                                          */
+/* -------------------------------------------------------------------- */
+/* Gradio's own components (labels, dataframes, code blocks, dropzones)
+   read from THEIR OWN CSS variables, which default to values tuned for
+   Gradio's stock light/dark themes — not necessarily the ivory/navy
+   palette above. Wherever we don't explicitly re-skin a component, it
+   was falling back to those defaults, which is why several labels and
+   the code panel were rendering as low/zero-contrast text. Overriding
+   the variables at the root fixes that class of bug everywhere at once,
+   instead of chasing every individual component selector. */
+.gradio-container {
+    --body-text-color: var(--lb-ink);
+    --body-text-color-subdued: var(--lb-slate);
+    --background-fill-primary: var(--lb-paper);
+    --background-fill-secondary: var(--lb-surface-2);
+    --border-color-primary: var(--lb-hairline-strong);
+    --border-color-accent: var(--lb-brass);
+    --color-accent: var(--lb-brass);
+    --link-text-color: var(--lb-emerald);
+    --link-text-color-hover: var(--lb-emerald-dark);
+    --link-text-color-active: var(--lb-emerald-dark);
+    --link-text-color-visited: var(--lb-emerald);
+
+    --block-background-fill: var(--lb-surface);
+    --block-border-color: var(--lb-hairline);
+    --block-border-width: 1px;
+    --block-info-text-color: var(--lb-slate);
+    --block-label-background-fill: var(--lb-surface);
+    --block-label-border-color: var(--lb-hairline);
+    --block-label-text-color: var(--lb-ink-2);
+    --block-title-background-fill: transparent;
+    --block-title-text-color: var(--lb-ink);
+
+    --panel-background-fill: var(--lb-surface-2);
+    --panel-border-color: var(--lb-hairline);
+
+    --input-background-fill: var(--lb-surface);
+    --input-border-color: var(--lb-hairline-strong);
+    --input-placeholder-color: var(--lb-slate-soft);
+
+    --table-border-color: var(--lb-hairline);
+    --table-even-background-fill: var(--lb-surface-2);
+    --table-odd-background-fill: var(--lb-surface);
+    --table-row-focus: var(--lb-success-bg);
+
+    --neutral-50: var(--lb-surface-2);
+    --neutral-100: var(--lb-surface-2);
+    --neutral-200: var(--lb-hairline);
+    --neutral-800: var(--lb-ink-2);
+    --neutral-900: var(--lb-ink);
+    --neutral-950: var(--lb-ink);
 }
 
 /* -------------------------------------------------------------------- */
@@ -128,7 +182,7 @@ footer,
     position: absolute;
     inset: 0 0 auto 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--lb-brass) 0%, rgba(156, 122, 46, 0) 60%);
+    background: linear-gradient(90deg, var(--lb-brass) 0%, rgba(165, 121, 31, 0) 60%);
 }
 
 .lb-hero h1,
@@ -143,7 +197,7 @@ footer,
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #e3c988 !important;
+    color: #e8cd8c !important;
     border-bottom: 2px solid var(--lb-brass);
     padding-bottom: 7px;
     margin-bottom: 14px;
@@ -173,7 +227,7 @@ footer,
     border: 1px solid var(--lb-hairline);
     border-radius: var(--lb-radius);
     padding: 22px;
-    box-shadow: 0 1px 2px rgba(16, 27, 45, 0.04);
+    box-shadow: 0 1px 3px rgba(16, 26, 46, 0.05);
 }
 
 .lb-card h3 {
@@ -215,8 +269,8 @@ footer,
     --block-label-background-fill: transparent;
     --block-label-border-width: 0px;
     --block-label-shadow: none;
-    --layout-gap: 20px;
-    row-gap: 20px;
+    --layout-gap: 18px;
+    row-gap: 18px;
 }
 
 .lb-card .block {
@@ -241,7 +295,8 @@ footer,
     font-weight: 700 !important;
     letter-spacing: 0.09em !important;
     text-transform: uppercase !important;
-    color: var(--lb-slate) !important;
+    color: var(--lb-ink-2) !important;
+    opacity: 1 !important;
 }
 
 /* -------------------------------------------------------------------- */
@@ -255,13 +310,115 @@ footer,
 }
 
 /* -------------------------------------------------------------------- */
+/* Sidebar sub-panels                                                    */
+/* -------------------------------------------------------------------- */
+/* Groups the sidebar into clearly bounded sections (demo loader / file
+   upload / review instruction) instead of one long unbroken stack of
+   controls — this is the main structural fix for the "messed up,
+   everything floating" sidebar look. Specificity is bumped above the
+   ".lb-card .block" reset above so the tint actually shows. */
+
+.lb-card .block.lb-subpanel,
+.lb-card .lb-subpanel {
+    background: var(--lb-surface-2) !important;
+    border: 1px solid var(--lb-hairline) !important;
+    border-radius: var(--lb-radius) !important;
+    padding: 16px 16px 14px !important;
+    box-shadow: none !important;
+}
+
+.lb-card .lb-subpanel .form,
+.lb-card .lb-subpanel {
+    row-gap: 10px !important;
+    gap: 10px !important;
+}
+
+/* File upload dropzone reads as a distinct white "slot" inside the
+   tinted sub-panel rather than blending into it. */
+.lb-card .lb-subpanel [data-testid="file-upload"],
+.lb-card .lb-subpanel .upload-box,
+.lb-card .lb-subpanel [class*="upload-container"] {
+    background: var(--lb-surface) !important;
+}
+
+.lb-component-label {
+    color: var(--lb-ink-2) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.09em !important;
+    line-height: 1.3;
+    margin: 0 0 2px;
+    opacity: 1 !important;
+    text-transform: uppercase;
+}
+
+/* -------------------------------------------------------------------- */
+/* Demo scenario loader                                                  */
+/* -------------------------------------------------------------------- */
+
+.lb-demo-heading {
+    color: var(--lb-ink-2) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.09em !important;
+    margin: 0 0 2px;
+    text-transform: uppercase;
+}
+
+.lb-demo-row {
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+#demo-scenario {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+#demo-scenario input,
+#demo-scenario button,
+#demo-scenario [class*="wrap"] {
+    color: var(--lb-ink) !important;
+    background: var(--lb-surface) !important;
+    border-color: var(--lb-hairline-strong) !important;
+    font-size: 0.82rem !important;
+    min-height: 42px;
+    border-radius: var(--lb-radius-sm) !important;
+}
+
+#load-demo-invoice {
+    min-height: 42px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* This note used to carry a negative top margin intended to tuck it
+   under the row above; instead it pulled the text up on top of the
+   Load Demo button, producing the overlapping/strikethrough look.
+   A normal positive margin lets the sub-panel's own row-gap do the
+   spacing instead. */
+.lb-demo-note {
+    color: var(--lb-slate) !important;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    margin: 2px 0 0;
+}
+
+.lb-demo-selected {
+    background: var(--lb-success-bg) !important;
+    border-color: var(--lb-success-border) !important;
+}
+
+/* -------------------------------------------------------------------- */
 /* Upload dropzone                                                        */
 /* -------------------------------------------------------------------- */
 
 .lb-card [data-testid="file-upload"],
 .lb-card .upload-box,
 .lb-card [class*="upload-container"] {
-    background: var(--lb-surface-2) !important;
     border: 1.5px dashed var(--lb-hairline-strong) !important;
     border-radius: var(--lb-radius-sm) !important;
     transition: border-color 0.15s ease, background 0.15s ease;
@@ -275,18 +432,57 @@ footer,
 
 .lb-card [data-testid="file-upload"] svg,
 .lb-card .upload-box svg {
-    color: var(--lb-brass) !important;
-    opacity: 0.85;
+    color: var(--lb-brass-deep) !important;
+    opacity: 1 !important;
 }
 
 .lb-card [data-testid="file-upload"] *,
 .lb-card .upload-box * {
     color: var(--lb-slate) !important;
     font-family: var(--font-body) !important;
+    opacity: 1 !important;
 }
 
 .lb-card svg:not([data-testid="file-upload"] svg):not(.upload-box svg) {
     color: var(--lb-slate-soft);
+}
+
+/* Uploaded-file name chip */
+.lb-upload-name {
+    align-items: center;
+    background: var(--lb-surface);
+    border: 1px solid var(--lb-hairline);
+    border-radius: 8px;
+    color: var(--lb-ink) !important;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 10px 12px;
+}
+
+.lb-upload-label {
+    color: var(--lb-slate) !important;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.lb-upload-value {
+    color: var(--lb-ink) !important;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+    text-align: center;
+    width: 100%;
+}
+
+.lb-upload-empty {
+    color: var(--lb-slate) !important;
+    font-style: italic;
 }
 
 /* -------------------------------------------------------------------- */
@@ -379,7 +575,7 @@ footer,
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fdf8ec;
+    background: #fbf3de;
 }
 
 .lb-workflow li::after {
@@ -485,11 +681,25 @@ footer,
     color: var(--lb-warning-text) !important;
 }
 
+.lb-status.amount_mismatch,
+.lb-status.amount_mismatch h2,
+.lb-status.amount_mismatch p,
+.lb-status.amount_mismatch strong,
+.lb-status.amount_mismatch span {
+    color: var(--lb-warning-text) !important;
+}
+
 .lb-status.error,
 .lb-status.unknown {
     background: var(--lb-danger-bg) !important;
     border-color: var(--lb-danger-border);
     color: var(--lb-danger-text) !important;
+}
+
+.lb-status ::selection,
+.lb-status *::selection {
+    background: var(--lb-brass-deep) !important;
+    color: #ffffff !important;
 }
 
 /* -------------------------------------------------------------------- */
@@ -635,14 +845,14 @@ footer,
 }
 
 /* -------------------------------------------------------------------- */
-/* Ledger candidates table                                                */
+/* Ledger tables (candidate matches + review history)                    */
 /* -------------------------------------------------------------------- */
 
 .lb-ledger-table {
     border: 1px solid var(--lb-hairline) !important;
     border-radius: var(--lb-radius) !important;
     overflow: hidden;
-    box-shadow: 0 1px 2px rgba(16, 27, 45, 0.04);
+    box-shadow: 0 1px 2px rgba(16, 26, 46, 0.04);
 }
 
 .lb-ledger-table table {
@@ -676,19 +886,83 @@ footer,
     background: var(--lb-success-bg) !important;
 }
 
+/* The "Top candidate matches" / "Reconciliation review history" labels
+   sit above the table, OUTSIDE the sidebar card, so none of the
+   .lb-card label rules ever reached them — they were falling straight
+   through to Gradio's default (near-invisible) label styling. Fixed
+   generically here so it covers both ledger tables at once. */
+.lb-ledger-table > label,
+.lb-ledger-table > label *,
+.lb-ledger-table [class*="label-wrap"],
+.lb-ledger-table [class*="label-wrap"] * {
+    color: var(--lb-ink-2) !important;
+    background: var(--lb-surface) !important;
+    opacity: 1 !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    border: 1px solid var(--lb-hairline) !important;
+    border-radius: var(--lb-radius-sm) !important;
+    padding: 6px 10px !important;
+    display: inline-block !important;
+    margin: 0 0 10px !important;
+}
+
+/* -------------------------------------------------------------------- */
+/* Standalone textbox label — "Editable vendor communication"            */
+/* -------------------------------------------------------------------- */
+/* Same root cause as the table labels above: this textbox lives
+   directly on the page background, not inside .lb-card, so it needs
+   its own explicit background behind the label text, not just a text
+   color. Previously only the color was set, leaving dark text sitting
+   on Gradio's default dark label chip. */
+
+#resolution-draft label,
+#resolution-draft [class*="label-wrap"],
+#resolution-draft [class*="label"] {
+    background: var(--lb-surface) !important;
+    color: var(--lb-ink-2) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    opacity: 1 !important;
+    text-transform: uppercase !important;
+    border: 1px solid var(--lb-hairline) !important;
+    border-radius: var(--lb-radius-sm) !important;
+    padding: 4px 8px !important;
+}
+
+#resolution-draft textarea,
+#resolution-draft textarea::placeholder {
+    color: var(--lb-ink) !important;
+    opacity: 1 !important;
+}
+
+#resolution-draft textarea::placeholder {
+    color: var(--lb-slate) !important;
+}
+
+#resolution-draft textarea {
+    background: var(--lb-surface) !important;
+    border: 1px solid var(--lb-hairline-strong) !important;
+}
+
 /* -------------------------------------------------------------------- */
 /* Buttons                                                                */
 /* -------------------------------------------------------------------- */
 
 .gradio-container button.primary,
 .gradio-container button.lg.primary {
-    background: var(--lb-emerald) !important;
+    background: linear-gradient(180deg, var(--lb-emerald) 0%, var(--lb-emerald-dark) 100%) !important;
     border: 1px solid var(--lb-emerald-dark) !important;
     color: #ffffff !important;
     border-radius: var(--lb-radius-sm) !important;
     font-weight: 600 !important;
     letter-spacing: 0.01em;
-    box-shadow: 0 1px 2px rgba(14, 110, 85, 0.18);
+    box-shadow: 0 1px 2px rgba(15, 107, 82, 0.2);
 }
 
 .gradio-container button.primary:hover {
@@ -713,7 +987,7 @@ footer,
     min-height: 48px;
     font-size: 0.98rem;
     font-weight: 700 !important;
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 /* -------------------------------------------------------------------- */
@@ -734,7 +1008,7 @@ footer,
 .gradio-container input[type="text"]:focus,
 .gradio-container textarea:focus {
     border-color: var(--lb-emerald) !important;
-    box-shadow: 0 0 0 3px rgba(14, 110, 85, 0.12) !important;
+    box-shadow: 0 0 0 3px rgba(15, 107, 82, 0.12) !important;
 }
 
 .gradio-container label span {
@@ -751,24 +1025,205 @@ footer,
     background: var(--lb-surface-2) !important;
 }
 
-/* -------------------------------------------------------------------- */
-/* Accordion / technical details                                         */
-/* -------------------------------------------------------------------- */
+.lb-card textarea,
+.lb-card textarea::placeholder,
+.lb-card input,
+.lb-card input::placeholder {
+    color: var(--lb-ink) !important;
+    opacity: 1 !important;
+}
 
-.gradio-container .label-wrap,
-.gradio-container .accordion {
+.lb-card textarea {
+    background: var(--lb-surface) !important;
+    border-color: var(--lb-hairline-strong) !important;
+    caret-color: var(--lb-ink) !important;
+}
+
+.lb-card [data-testid="textbox"] textarea,
+.lb-card [data-testid="textbox"] textarea * {
+    color: var(--lb-ink) !important;
+    opacity: 1 !important;
+}
+
+#invoice-image-upload label,
+#invoice-image-upload label span,
+#invoice-image-upload [class*="label"],
+#invoice-image-upload [class*="label"] span {
+    color: var(--lb-ink-2) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    opacity: 1 !important;
+    text-transform: uppercase !important;
+}
+
+/* -------------------------------------------------------------------- */
+/* Accordion + code panel ("Technical details")                          */
+/* -------------------------------------------------------------------- */
+/* The JSON viewer is a CodeMirror instance, which ships its OWN dark
+   syntax theme completely independent of the rest of the page's
+   theming — none of the generic text-color rules above ever reach
+   into it. That's why it rendered as a solid black strip: dark
+   CodeMirror background, dark (or default) CodeMirror text, both
+   invisible against each other. Overriding the CodeMirror classes
+   directly is the only reliable fix for this component. */
+
+#technical-details {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-bottom: 4px;
+}
+
+#technical-details > .label-wrap,
+#technical-details summary,
+#technical-details button.label-wrap,
+#technical-details [role="button"] {
+    background: var(--lb-surface) !important;
+    color: var(--lb-ink-2) !important;
     border: 1px solid var(--lb-hairline) !important;
-    border-radius: var(--lb-radius) !important;
+    border-radius: var(--lb-radius-sm) !important;
+    padding: 12px 18px !important;
+    min-height: 44px;
+    display: flex !important;
+    align-items: center !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 1 !important;
+}
+
+#technical-details svg {
+    color: var(--lb-brass-deep) !important;
+    opacity: 1 !important;
+}
+
+#technical-details[open] > .label-wrap {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-color: transparent !important;
+}
+
+#technical-details > .wrap,
+#technical-details [data-testid="block"] {
+    background: var(--lb-surface) !important;
+    border: 1px solid var(--lb-hairline) !important;
+    border-top: none !important;
+    border-radius: 0 0 var(--lb-radius-sm) var(--lb-radius-sm) !important;
+    padding: 4px !important;
+}
+
+#technical-details .cm-editor,
+#technical-details .cm-editor.cm-focused,
+#technical-details .cm-scroller {
+    background: var(--lb-surface) !important;
+    color: var(--lb-ink) !important;
+}
+
+#technical-details .cm-gutters {
+    background: var(--lb-surface-2) !important;
+    color: var(--lb-slate-soft) !important;
+    border-right: 1px solid var(--lb-hairline) !important;
+}
+
+#technical-details .cm-content,
+#technical-details .cm-line {
+    color: var(--lb-ink) !important;
+}
+
+#technical-details .cm-activeLine,
+#technical-details .cm-activeLineGutter {
+    background: var(--lb-surface-2) !important;
+}
+
+#technical-details .cm-selectionBackground {
+    background: rgba(15, 107, 82, 0.15) !important;
+}
+
+/* JSON syntax token colors, kept legible on the light panel */
+#technical-details .cm-string { color: var(--lb-emerald-dark) !important; }
+#technical-details .cm-number { color: var(--lb-brass-deep) !important; }
+#technical-details .cm-property,
+#technical-details .cm-propertyName { color: var(--lb-ink-2) !important; }
+#technical-details .cm-punctuation,
+#technical-details .cm-bracket { color: var(--lb-slate) !important; }
+#technical-details .cm-keyword,
+#technical-details .cm-atom,
+#technical-details .cm-bool { color: var(--lb-oxblood) !important; }
+
+#technical-details [class*="copy"],
+#technical-details button:not(.label-wrap) {
+    color: var(--lb-slate) !important;
     background: var(--lb-surface) !important;
 }
 
-.gradio-container .accordion > .label-wrap {
-    font-family: var(--font-mono) !important;
-    font-size: 0.78rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+/* -------------------------------------------------------------------- */
+/* Tab and sidebar contrast fixes                                        */
+/* -------------------------------------------------------------------- */
+
+.gradio-container [role="tab"] {
     color: var(--lb-slate) !important;
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+.gradio-container [role="tab"]:hover,
+.gradio-container [role="tab"][aria-selected="true"] {
+    color: var(--lb-brass-deep) !important;
+    opacity: 1 !important;
+}
+
+.gradio-container [role="tab"][aria-selected="true"] {
+    border-color: var(--lb-brass) !important;
+}
+
+.lb-card label span,
+.lb-card [class*="label-wrap"] span,
+.lb-card [class*="block-title"] {
+    color: var(--lb-ink-2) !important;
+    opacity: 1 !important;
+}
+
+#review-instruction textarea,
+#review-instruction textarea::placeholder {
+    color: var(--lb-ink) !important;
+    opacity: 1 !important;
+}
+
+#review-instruction textarea {
+    background: var(--lb-surface) !important;
+    border: 1px solid var(--lb-hairline-strong) !important;
+}
+
+#workflow-steps,
+#workflow-steps *,
+#workflow-steps .prose,
+#workflow-steps .prose * {
+    opacity: 1 !important;
+}
+
+#workflow-steps,
+#workflow-steps .prose,
+#workflow-steps ol,
+#workflow-steps li {
+    color: var(--lb-ink) !important;
+}
+
+#workflow-steps strong,
+#workflow-steps p:first-child {
+    color: var(--lb-ink-2) !important;
+}
+
+/* -------------------------------------------------------------------- */
+/* Demo scenario loader input styling                                    */
+/* -------------------------------------------------------------------- */
+
+#demo-scenario {
+    min-width: 0;
 }
 
 /* -------------------------------------------------------------------- */
@@ -799,277 +1254,8 @@ footer,
     .lb-status-confidence {
         align-items: flex-start;
     }
-}
-.lb-upload-name {
-    align-items: center;
-    background: #f8fafc;
-    border: 1px solid #dbe3ef;
-    border-radius: 8px;
-    color: #1e293b !important;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin: 8px 0 14px;
-    padding: 10px 12px;
-}
 
-.lb-upload-label {
-    color: #64748b !important;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-.lb-upload-value {
-    color: #0b1f3a !important;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.85rem;
-    font-weight: 650;
-    overflow-wrap: anywhere;
-    text-align: center;
-    width: 100%;
-}
-
-.lb-upload-empty {
-    color: #64748b !important;
-    font-style: italic;
-}
-
-/* -------------------------------------------------------------------- */
-/* Tab and sidebar contrast fixes                                        */
-/* -------------------------------------------------------------------- */
-
-/* Keep inactive tab labels readable against the light console surface. */
-.gradio-container [role="tab"] {
-    color: var(--lb-slate) !important;
-    font-family: var(--font-body) !important;
-    font-weight: 600 !important;
-    opacity: 1 !important;
-}
-
-.gradio-container [role="tab"]:hover,
-.gradio-container [role="tab"][aria-selected="true"] {
-    color: var(--lb-brass-deep) !important;
-    opacity: 1 !important;
-}
-
-/* Ensure the active tab remains distinct and keeps the brass accent. */
-.gradio-container [role="tab"][aria-selected="true"] {
-    border-color: var(--lb-brass) !important;
-}
-
-/* Review instruction: restore readable label and text in the sidebar. */
-.lb-card textarea,
-.lb-card textarea::placeholder,
-.lb-card input,
-.lb-card input::placeholder {
-    color: var(--lb-ink) !important;
-    opacity: 1 !important;
-}
-
-.lb-card textarea {
-    background: var(--lb-surface) !important;
-    border-color: var(--lb-hairline-strong) !important;
-    caret-color: var(--lb-ink) !important;
-}
-
-/* Label is intentionally darker than the general muted labels. */
-.lb-card label span,
-.lb-card [class*="label-wrap"] span,
-.lb-card [class*="block-title"] {
-    color: var(--lb-ink-2) !important;
-    opacity: 1 !important;
-}
-
-/* Protect text within Gradio's textbox wrapper from theme opacity rules. */
-.lb-card [data-testid="textbox"] textarea,
-.lb-card [data-testid="textbox"] textarea * {
-    color: var(--lb-ink) !important;
-    opacity: 1 !important;
-}
-
-/* -------------------------------------------------------------------- */
-/* Component-label and status contrast corrections                       */
-/* -------------------------------------------------------------------- */
-
-/* Prevent browser selection colors from making status text unreadable. */
-.lb-status ::selection,
-.lb-status *::selection {
-    background: var(--lb-brass-deep) !important;
-    color: #ffffff !important;
-}
-
-/* Amount-mismatch status retains readable text against its pale warning tint. */
-.lb-status.amount_mismatch,
-.lb-status.amount_mismatch h2,
-.lb-status.amount_mismatch p,
-.lb-status.amount_mismatch strong,
-.lb-status.amount_mismatch span {
-    color: var(--lb-warning-text) !important;
-}
-
-/* Ensure the resolution-draft label and placeholder have adequate contrast. */
-#resolution-draft label,
-#resolution-draft label span,
-#resolution-draft [class*="label"],
-#resolution-draft [class*="label"] span {
-    color: var(--lb-ink-2) !important;
-    font-family: var(--font-mono) !important;
-    font-size: 0.72rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.08em !important;
-    opacity: 1 !important;
-    text-transform: uppercase !important;
-}
-
-#resolution-draft textarea,
-#resolution-draft textarea::placeholder {
-    color: var(--lb-ink) !important;
-    opacity: 1 !important;
-}
-
-#resolution-draft textarea::placeholder {
-    color: var(--lb-slate) !important;
-}
-
-/* Make the upload label readable without altering upload functionality. */
-#invoice-image-upload label,
-#invoice-image-upload label span,
-#invoice-image-upload [class*="label"],
-#invoice-image-upload [class*="label"] span {
-    color: var(--lb-ink-2) !important;
-    font-family: var(--font-mono) !important;
-    font-size: 0.72rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.08em !important;
-    opacity: 1 !important;
-    text-transform: uppercase !important;
-}
-
-/* Sidebar instruction retains its intended text, but has no generic label. */
-#review-instruction textarea,
-#review-instruction textarea::placeholder {
-    color: var(--lb-ink) !important;
-    opacity: 1 !important;
-}
-
-#review-instruction textarea {
-    background: var(--lb-surface) !important;
-    border: 1px solid var(--lb-hairline-strong) !important;
-}
-
-/* Sidebar workflow heading. */
-#workflow-steps,
-#workflow-steps *,
-#workflow-steps .prose,
-#workflow-steps .prose * {
-    opacity: 1 !important;
-}
-
-#workflow-steps strong,
-#workflow-steps p:first-child {
-    color: var(--lb-ink-2) !important;
-}
-
-/* Technical-details accordion heading. */
-#technical-details,
-#technical-details *,
-#technical-details .label-wrap,
-#technical-details .label-wrap *,
-#technical-details summary,
-#technical-details summary * {
-    color: var(--lb-ink-2) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-#technical-details .label-wrap,
-#technical-details summary {
-    background: var(--lb-surface) !important;
-}
-/* -------------------------------------------------------------------- */
-/* Explicit component labels                                             */
-/* -------------------------------------------------------------------- */
-
-.lb-component-label {
-    color: var(--lb-ink-2) !important;
-    font-family: var(--font-mono) !important;
-    font-size: 0.72rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.09em !important;
-    line-height: 1.3;
-    margin: 0 0 8px;
-    opacity: 1 !important;
-    text-transform: uppercase;
-}
-
-.lb-workflow-label {
-    margin-top: 4px;
-    padding-top: 18px;
-    border-top: 1px dashed var(--lb-hairline-strong);
-}
-
-/* The workflow list retains high contrast after its heading is separated. */
-#workflow-steps,
-#workflow-steps .prose,
-#workflow-steps ol,
-#workflow-steps li {
-    color: var(--lb-ink) !important;
-    opacity: 1 !important;
-}
-
-/* Accordion itself remains a compact, clickable disclosure control. */
-#technical-details {
-    margin-bottom: 18px;
-}
-
-#technical-details .label-wrap,
-#technical-details summary,
-#technical-details button {
-    color: var(--lb-ink-2) !important;
-    background: var(--lb-surface) !important;
-}
-/* -------------------------------------------------------------------- */
-/* Demo scenario loader                                                  */
-/* -------------------------------------------------------------------- */
-
-.lb-demo-heading {
-    color: var(--lb-ink-2) !important;
-    font-family: var(--font-mono) !important;
-    font-size: 0.7rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.09em !important;
-    margin: 2px 0 8px;
-    text-transform: uppercase;
-}
-
-.lb-demo-note {
-    color: var(--lb-slate) !important;
-    font-size: 0.78rem;
-    line-height: 1.45;
-    margin: -10px 0 2px;
-}
-
-#demo-scenario {
-    min-width: 0;
-}
-
-#demo-scenario input,
-#demo-scenario button,
-#demo-scenario [class*="wrap"] {
-    color: var(--lb-ink) !important;
-    background: var(--lb-surface) !important;
-    border-color: var(--lb-hairline-strong) !important;
-    font-size: 0.82rem !important;
-}
-
-#load-demo-invoice {
-    min-height: 42px;
-    white-space: nowrap;
-}
-
-.lb-demo-selected {
-    background: var(--lb-success-bg) !important;
-    border-color: var(--lb-success-border) !important;
+    .lb-demo-row {
+        flex-wrap: wrap;
+    }
 }

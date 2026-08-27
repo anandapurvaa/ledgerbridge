@@ -564,58 +564,76 @@ def build_app() -> gr.Blocks:
                         with gr.Group(elem_classes=["lb-card"]):
                             gr.Markdown("### Start a reconciliation")
 
-                            gr.HTML(
-                                "<div class='lb-demo-heading'>Try a demo scenario</div>"
-                            )
-
-                            with gr.Row(equal_height=True):
-                                demo_scenario = gr.Dropdown(
-                                    choices=list(DEMO_SCENARIOS.keys()),
-                                    value="Amount mismatch",
-                                    label="Demo scenario",
-                                    show_label=False,
-                                    container=False,
-                                    elem_id="demo-scenario",
+                            # --- Demo scenario loader -----------------
+                            with gr.Group(elem_classes=["lb-subpanel"]):
+                                gr.HTML(
+                                    "<div class='lb-demo-heading'>"
+                                    "Try a demo scenario</div>"
                                 )
 
-                                load_demo_button = gr.Button(
-                                    "Load demo",
-                                    variant="secondary",
-                                    elem_id="load-demo-invoice",
-                                )
+                                with gr.Row(
+                                    equal_height=True,
+                                    elem_classes=["lb-demo-row"],
+                                ):
+                                    demo_scenario = gr.Dropdown(
+                                        choices=list(
+                                            DEMO_SCENARIOS.keys()
+                                        ),
+                                        value="Amount mismatch",
+                                        label="Demo scenario",
+                                        show_label=False,
+                                        container=False,
+                                        elem_id="demo-scenario",
+                                    )
 
-                            gr.HTML(
-                                "<div class='lb-demo-note'>"
-                                "Load a sample invoice, then select Run reconciliation."
-                                "</div>"
-                            )
+                                    load_demo_button = gr.Button(
+                                        "Load demo",
+                                        variant="secondary",
+                                        elem_id="load-demo-invoice",
+                                    )
 
-                            invoice_file = gr.File(
-                                label="Invoice image",
-                                file_types=["image"],
-                                type="filepath",
-                                elem_id="invoice-image-upload",
-                            )
-
-                            uploaded_file_name_html = gr.HTML(
-                                value=(
-                                    "<div class='lb-upload-name "
-                                    "lb-upload-empty'>"
-                                    "No invoice file selected."
+                                gr.HTML(
+                                    "<div class='lb-demo-note'>"
+                                    "Load a sample invoice, then "
+                                    "select Run reconciliation."
                                     "</div>"
                                 )
-                            )
 
-                            user_query = gr.Textbox(
-                                value=(
-                                    "Reconcile this invoice and create "
-                                    "a dispute draft if a discrepancy "
-                                    "is found."
-                                ),
-                                lines=3,
-                                show_label=False,
-                                elem_id="review-instruction",
-                            )
+                            # --- Invoice upload ------------------------
+                            with gr.Group(elem_classes=["lb-subpanel"]):
+                                invoice_file = gr.File(
+                                    label="Invoice image",
+                                    file_types=["image"],
+                                    type="filepath",
+                                    elem_id="invoice-image-upload",
+                                )
+
+                                uploaded_file_name_html = gr.HTML(
+                                    value=(
+                                        "<div class='lb-upload-name "
+                                        "lb-upload-empty'>"
+                                        "No invoice file selected."
+                                        "</div>"
+                                    )
+                                )
+
+                            # --- Review instruction --------------------
+                            with gr.Group(elem_classes=["lb-subpanel"]):
+                                gr.HTML(
+                                    "<div class='lb-component-label'>"
+                                    "Review instruction</div>"
+                                )
+
+                                user_query = gr.Textbox(
+                                    value=(
+                                        "Reconcile this invoice and "
+                                        "create a dispute draft if a "
+                                        "discrepancy is found."
+                                    ),
+                                    lines=3,
+                                    show_label=False,
+                                    elem_id="review-instruction",
+                                )
 
                             run_button = gr.Button(
                                 "Run reconciliation",
