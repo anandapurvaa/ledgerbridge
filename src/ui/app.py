@@ -366,6 +366,88 @@ def load_demo_invoice(
         ),
     )
 
+def reconcile_invoice_ui(
+    invoice_file: str | None,
+    user_query: str,
+):
+    empty = (
+        "<div class='lb-empty'>"
+        "Upload an invoice image to begin reconciliation."
+        "</div>"
+    )
+
+    if not invoice_file:
+        return (
+            empty,
+            empty,
+            [],
+            empty,
+            "",
+            empty,
+            "",
+            "",
+            "",
+        )
+
+    result = run_reconciliation_graph(
+        invoice_image_path=Path(invoice_file),
+        user_query=user_query or (
+            "Reconcile this invoice and create a dispute "
+            "draft if a discrepancy is found."
+        ),
+    )
+
+    fields = result.get("extracted_fields", {})
+    reconciliation = result.get("reconciliation_result", {})
+    status = reconciliation.get("status", "")
+
+    return (
+        build_invoice_fields_html(fields),
+        build_status_html(reconciliation),
+        build_candidate_table(
+            result.get("candidate_matches", [])
+        ),
+        build_investigation_html(
+            result.get("investigation", {})
+        ),
+        result.get("dispute_letter_draft", ""),
+        build_audit_html(result.get("audit_event_id", "")),
+        json.dumps(fields, indent=2, default=str),
+        result.get("audit_event_id", ""),
+        fields.get("invoice_id", ""),
+        status,
+    )
+
+
+def approve_draft_ui(
+    draft: str,
+    audit_event_id: str,
+    invoice_id: str,
+    reconciliation_status: str,
+) -> str:
+    try:
+        approval_event_id = approve_draft_for_review(
+            draft=draft,
+            audit_event_id=audit_event_id,
+            invoice_id=invoice_id,
+            reconciliation_status=reconciliation_status,
+        )
+    except (ValueError, RuntimeError) as error:
+        return (
+            "<div class='lb-status error'>"
+            "<h2>Approval failed</h2>"
+            f"<p>{safe_html(error)}</p>"
+            "</div>"
+        )
+
+    return (
+        "<div class='lb-status matched'>"
+        "<h2>Draft approved for review</h2>"
+        "<p>The approval was recorded. No email has been sent.</p>"
+        "<p><strong>Approval event ID:</strong> "
+        f"<code>{safe_html(approval_event_id)}</code></p>"
+        "</div>"
+    )
 
 def load_review_history(
     root_cause: str,
