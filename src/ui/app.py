@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import random
 import html
 import json
 import tempfile
@@ -19,7 +20,16 @@ from src.ui.graph_runner import run_reconciliation_graph
 
 
 STYLE_PATH = Path(__file__).parent / "assets" / "style.css"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEMO_INVOICES_DIR = PROJECT_ROOT / "data" / "demo_invoices"
 
+DEMO_SCENARIOS = {
+    "Clean match": "matched",
+    "Amount mismatch": "amount_mismatch",
+    "FX mismatch": "fx_mismatch",
+    "Quantity mismatch": "quantity_mismatch",
+    "Duplicate charge": "duplicate_charge",
+}
 CANDIDATE_HEADERS = [
     "Rank",
     "Invoice ID",
@@ -315,6 +325,46 @@ def build_uploaded_file_html(
         "</div>"
     )
 
+def load_demo_invoice(
+    scenario_label: str,
+) -> tuple[gr.File, str]:
+    category = DEMO_SCENARIOS.get(scenario_label)
+
+    if not category:
+        return (
+            gr.File(value=None),
+            (
+                "<div class='lb-upload-name lb-upload-empty'>"
+                "Choose a demo scenario first."
+                "</div>"
+            ),
+        )
+
+    candidates = sorted(
+        DEMO_INVOICES_DIR.glob(f"{category}_*.png")
+    )
+
+    if not candidates:
+        return (
+            gr.File(value=None),
+            (
+                "<div class='lb-upload-name lb-upload-empty'>"
+                "No demo invoice is available for this scenario."
+                "</div>"
+            ),
+        )
+
+    selected_file = random.choice(candidates)
+
+    return (
+        gr.File(value=str(selected_file)),
+        (
+            "<div class='lb-upload-name lb-demo-selected'>"
+            "<span class='lb-upload-label'>Demo invoice loaded</span>"
+            f"<span class='lb-upload-value'>{safe_html(selected_file.name)}</span>"
+            "</div>"
+        ),
+    )
 
 def reconcile_invoice_ui(
     invoice_file: str | None,
@@ -514,6 +564,32 @@ def build_app() -> gr.Blocks:
                         with gr.Group(elem_classes=["lb-card"]):
                             gr.Markdown("### Start a reconciliation")
 
+                            gr.HTML(
+                                "<div class='lb-demo-heading'>Try a demo scenario</div>"
+                            )
+
+                            with gr.Row(equal_height=True):
+                                demo_scenario = gr.Dropdown(
+                                    choices=list(DEMO_SCENARIOS.keys()),
+                                    value="Amount mismatch",
+                                    label="Demo scenario",
+                                    show_label=False,
+                                    container=False,
+                                    elem_id="demo-scenario",
+                                )
+
+                                load_demo_button = gr.Button(
+                                    "Load demo",
+                                    variant="secondary",
+                                    elem_id="load-demo-invoice",
+                                )
+
+                            gr.HTML(
+                                "<div class='lb-demo-note'>"
+                                "Load a sample invoice, then select Run reconciliation."
+                                "</div>"
+                            )
+
                             invoice_file = gr.File(
                                 label="Invoice image",
                                 file_types=["image"],
@@ -681,6 +757,12 @@ def build_app() -> gr.Blocks:
                     fn=build_uploaded_file_html,
                     inputs=[invoice_file],
                     outputs=[uploaded_file_name_html],
+                )
+
+                load_demo_button.click(
+                    fn=load_demo_invoice,
+                    inputs=[demo_scenario],
+                    outputs=[invoice_file, uploaded_file_name_html],
                 )
 
                 run_button.click(

@@ -20,9 +20,8 @@ RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
 COPY src ./src
+COPY data/demo_invoices ./data/demo_invoices
 COPY models/layoutlmv3_lora_weighted ./models/layoutlmv3_lora_weighted
-
-RUN mkdir -p /app/data/synthetic/invoice_images
 
 EXPOSE 8080
 

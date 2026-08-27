@@ -37,12 +37,11 @@ reports/
 *.log
 
 # Large or reproducible datasets (root folder data ignored, src/data kept)
-/data/
+# Data subfolders to ignore (data/demo_invoices/ remains tracked)
 data/raw/
-data/synthetic/
 data/evaluation/
-data/**/*.arrow
-data/**/*.json
+data/synthetic/
+data/processed/
 
 # Exclude heavy training checkpoints, but KEEP the final runtime model weights & configs for CI/CD
 models/**/optimizer.pt

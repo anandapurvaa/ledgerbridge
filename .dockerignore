@@ -35,12 +35,12 @@ output/
 reports/
 *.log
 
-# Raw datasets and generated image corpora
+# Allow demo_invoices and its contents
+# Data subfolders to ignore (data/demo_invoices/ remains tracked)
 data/raw/
 data/evaluation/
 data/synthetic/
-data/**/*.arrow
-data/**/*.json
+data/processed/
 
 # Exclude heavy training state files, but keep model weights and configs
 models/**/optimizer.pt

@@ -1030,3 +1030,46 @@ footer,
     color: var(--lb-ink-2) !important;
     background: var(--lb-surface) !important;
 }
+/* -------------------------------------------------------------------- */
+/* Demo scenario loader                                                  */
+/* -------------------------------------------------------------------- */
+
+.lb-demo-heading {
+    color: var(--lb-ink-2) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.09em !important;
+    margin: 2px 0 8px;
+    text-transform: uppercase;
+}
+
+.lb-demo-note {
+    color: var(--lb-slate) !important;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    margin: -10px 0 2px;
+}
+
+#demo-scenario {
+    min-width: 0;
+}
+
+#demo-scenario input,
+#demo-scenario button,
+#demo-scenario [class*="wrap"] {
+    color: var(--lb-ink) !important;
+    background: var(--lb-surface) !important;
+    border-color: var(--lb-hairline-strong) !important;
+    font-size: 0.82rem !important;
+}
+
+#load-demo-invoice {
+    min-height: 42px;
+    white-space: nowrap;
+}
+
+.lb-demo-selected {
+    background: var(--lb-success-bg) !important;
+    border-color: var(--lb-success-border) !important;
+}
