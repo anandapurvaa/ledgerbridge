@@ -365,11 +365,26 @@ def load_demo_invoice(
             "</div>"
         ),
     )
+import time
+
+_DEMO_CACHE: dict[str, dict[str, Any]] = {}
+
 
 def reconcile_invoice_ui(
     invoice_file: str | None,
     user_query: str,
-):
+) -> tuple[
+    str,  # extracted_fields_html
+    str,  # reconciliation_status_html
+    list[list[Any]],  # candidate_matches_table
+    str,  # investigation_html
+    str,  # dispute_draft
+    str,  # audit_html
+    str,  # technical_extraction_json
+    str,  # audit_event_id_state
+    str,  # invoice_id_state
+    str,  # reconciliation_status_state
+]:
     empty = (
         "<div class='lb-empty'>"
         "Upload an invoice image to begin reconciliation."
@@ -387,15 +402,32 @@ def reconcile_invoice_ui(
             "",
             "",
             "",
+            "",
         )
 
-    result = run_reconciliation_graph(
-        invoice_image_path=Path(invoice_file),
-        user_query=user_query or (
-            "Reconcile this invoice and create a dispute "
-            "draft if a discrepancy is found."
-        ),
-    )
+    invoice_path = Path(invoice_file)
+    invoice_key = str(invoice_path.resolve())
+
+    # Use cache only for demo invoices under data/demo_invoices
+    use_cache = "data/demo_invoices" in invoice_key
+    if use_cache and invoice_key in _DEMO_CACHE:
+        result = _DEMO_CACHE[invoice_key]
+    else:
+        t0 = time.time()
+
+        result = run_reconciliation_graph(
+            invoice_image_path=invoice_path,
+            user_query=user_query or (
+                "Reconcile this invoice and create a dispute "
+                "draft if a discrepancy is found."
+            ),
+        )
+
+        t1 = time.time()
+        print(f"[PROFILE] run_reconciliation_graph took {t1 - t0:.2f}s for {invoice_path.name}")
+
+        if use_cache:
+            _DEMO_CACHE[invoice_key] = result
 
     fields = result.get("extracted_fields", {})
     reconciliation = result.get("reconciliation_result", {})
@@ -417,7 +449,6 @@ def reconcile_invoice_ui(
         fields.get("invoice_id", ""),
         status,
     )
-
 
 def approve_draft_ui(
     draft: str,
